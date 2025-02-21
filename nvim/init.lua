@@ -1,3 +1,5 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
@@ -45,15 +47,26 @@ vim.api.nvim_create_autocmd({"FileType"}, {
         end,
 })
 
+require("nvim-tree").setup({
+        view={
+                side="left"
+        }
+})
+
+require("gitsigns").setup {
+        current_line_blame = true,
+}
+
 require('nightfox').setup({
         options = {
                 styles = {
                         comments = "italic",
                         keywords = "bold",
-                        types = "italic,bold",
-                }
-        }
+                       types = "italic,bold",
+              }
+     }
 })
+
 
 require'nvim-treesitter.configs'.setup {
         ensure_installed = { "c", "lua", "vim", "vimdoc", "javascript","typescript", "markdown", "markdown_inline" },
@@ -76,6 +89,9 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
         -- colorscheme 
         use "EdenEast/nightfox.nvim"
+        use "ashen-org/ashen.nvim"
+        use 'cryptomilk/nightcity.nvim'
+
         -- status bar
         use({
                 "arsham/arshamiser.nvim",
@@ -88,7 +104,9 @@ return require('packer').startup(function(use)
                 },
                 config = function()
                         require("arshamiser.feliniser")
-                        vim.cmd("colorscheme terafox")
+                        vim.cmd("colorscheme nordfox")
+                        --vim.cmd("colorscheme ashen")
+                        --vim.cmd.colorscheme('nightcity')
 
                         _G.custom_foldtext = require("arshamiser.folding").foldtext
                         vim.opt.foldtext = "v:lua.custom_foldtext()"
@@ -97,11 +115,23 @@ return require('packer').startup(function(use)
                 end,
         })
 
+        -- nvim v0.7.2
+        use({
+                "kdheepak/lazygit.nvim",
+                -- optional for floating window border decoration
+                requires = {
+                        "nvim-lua/plenary.nvim",
+                },
+        })
+
         -- telescope 
         use {
                 'nvim-telescope/telescope.nvim', tag = '0.1.8',
                 requires = { {'nvim-lua/plenary.nvim'} }
         }
+
+        -- git blame line changes
+        use "lewis6991/gitsigns.nvim"
 
         -- treesitter
         use(
@@ -117,6 +147,13 @@ return require('packer').startup(function(use)
         use({'neovim/nvim-lspconfig'})
         use({'hrsh7th/nvim-cmp'})
         use({'hrsh7th/cmp-nvim-lsp'})
+
+        use {
+                'nvim-tree/nvim-tree.lua',
+                requires = {
+                        'nvim-tree/nvim-web-devicons', -- optional
+                },
+        }
 
         use {
                 'VonHeikemen/lsp-zero.nvim',
