@@ -1,0 +1,91 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+    "agent": {
+        "default_profile": "ask",
+        "play_sound_when_agent_done": true,
+        "model_parameters": [],
+        "default_model": {
+            "provider": "copilot_chat",
+            "model": "claude-sonnet-4"
+        },
+        "version": "2"
+    },
+    "icon_theme": "Zed (Default)",
+    "outline_panel": {
+        "dock": "right"
+    },
+    "edit_predictions": {
+        "mode": "eager"
+    },
+    "git_panel": {
+        "dock": "right"
+    },
+    "terminal": {
+        "dock": "bottom"
+    },
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false
+    },
+    "base_keymap": "VSCode",
+    "vim_mode": true,
+    "ui_font_size": 14,
+    "buffer_font_size": 14,
+    "theme": {
+        "mode": "system",
+        "light": "One Light",
+        "dark": "macOS Classic Dark"
+    },
+    "project_panel": {
+        "indent_size": 14,
+        "indent_style": "space",
+        "dock": "left"
+    },
+    "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+    },
+    "lsp": {
+        "biome": {}
+    },
+    "languages": {
+        "JavaScript": {
+            "formatter": { "language_server": { "name": "biome" } },
+            "code_actions_on_format": {
+                "source.fixAll.biome": true,
+                "source.organizeImports.biome": true
+            }
+        },
+        "TypeScript": {
+            "formatter": { "language_server": { "name": "biome" } },
+            "code_actions_on_format": {
+                "source.fixAll.biome": true,
+                "source.organizeImports.biome": true
+            }
+        },
+        "JSX": {
+            "formatter": { "language_server": { "name": "biome" } },
+            "code_actions_on_format": {
+                "source.fixAll.biome": true,
+                "source.organizeImports.biome": true
+            }
+        },
+        "TSX": {
+            "formatter": { "language_server": { "name": "biome" } },
+            "code_actions_on_format": {
+                "source.fixAll.biome": true,
+                "source.organizeImports.biome": true
+            }
+        }
+    },
+    "show_whitespaces": "all",
+    "relative_line_numbers": true,
+    "features": { "edit_prediction_provider": "zed", "copilot": true }
+}
