@@ -31,6 +31,7 @@ vim.pack.add({
 	{ src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
 	{ src = "https://github.com/hrsh7th/cmp-buffer" },
 	{ src = "https://github.com/folke/flash.nvim" },
+	{ src = "https://github.com/shortcuts/no-neck-pain.nvim" },
 })
 
 vim.cmd('packloadall')
@@ -62,6 +63,33 @@ require("flash").setup({
 		char = {
 			enabled = true,
 			jump_labels = true,
+		},
+	},
+})
+
+require("no-neck-pain").setup({
+	width = 120,
+	autocmds = {
+		enableOnVimEnter = true,
+		enableOnTabEnter = true,
+		skipEnteringNoNeckPainBuffer = true,
+	},
+	buffers = {
+		colors = {
+			background = "#1d1f21",
+		},
+		bo = {
+			filetype = "no-neck-pain",
+			buftype = "nofile",
+			bufhidden = "hide",
+			buflisted = false,
+			swapfile = false,
+		},
+		wo = {
+			number = false,
+			relativenumber = false,
+			signcolumn = "no",
+			statuscolumn = "",
 		},
 	},
 })
