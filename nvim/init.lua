@@ -23,7 +23,8 @@ vim.opt.undofile = true
 vim.pack.add({
 	{ src = "https://github.com/namrabtw/rusty.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
-	{ src = "https://github.com/echasnovski/mini.pick" },
+	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+	{ src = "https://github.com/nvim-lua/plenary.nvim" }, -- Required by telescope
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/williamboman/mason.nvim" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
@@ -37,7 +38,17 @@ vim.pack.add({
 vim.cmd('packloadall')
 
 -- Plugin configuration
-require("mini.pick").setup()
+require('telescope').setup({
+	defaults = {
+		mappings = {
+			i = {
+				["<C-u>"] = false,
+				["<C-d>"] = false,
+			},
+		},
+	},
+})
+
 require("oil").setup()
 require("mason").setup()
 require("gitsigns").setup({
@@ -124,10 +135,12 @@ lspconfig.clangd.setup({ capabilities = capabilities })
 vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 
--- File navigation
-vim.keymap.set('n', '<leader>pf', ":Pick files<CR>")
-vim.keymap.set('n', '<leader>pg', ":Pick files tool='git'<CR>")
-vim.keymap.set('n', '<leader>h', ":Pick help<CR>")
+-- Telescope keymaps
+vim.keymap.set('n', '<leader>pf', '<cmd>Telescope find_files<cr>')
+vim.keymap.set('n', '<leader>pg', '<cmd>Telescope git_files<cr>')
+vim.keymap.set('n', '<leader>ps', '<cmd>Telescope live_grep<cr>')
+vim.keymap.set('n', '<leader>pb', '<cmd>Telescope buffers<cr>')
+vim.keymap.set('n', '<leader>ph', '<cmd>Telescope help_tags<cr>')
 vim.keymap.set('n', '<leader>e', ":Oil<CR>")
 
 -- Movement
@@ -217,17 +230,21 @@ vim.api.nvim_create_autocmd({ 'FocusLost', 'BufLeave' }, {
 -- Colorscheme
 vim.cmd("colorscheme rusty")
 
--- Cheatsheet function
+-- Updated Cheatsheet
 local function show_cheatsheet()
 	local cheatsheet = {
 		"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
 		"                              🚀 NEOVIM CHEATSHEET 🚀                              ",
 		"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
 		"",
-		"📁 FILE NAVIGATION",
-		"  <leader>pf     Pick files",
-		"  <leader>pg     Pick git files",
-		"  <leader>h      Pick help",
+		"🔭 TELESCOPE NAVIGATION",
+		"  <leader>pf     Find files",
+		"  <leader>pg     Git files",
+		"  <leader>ps     Live grep (search project)",
+		"  <leader>pb     Switch buffers",
+		"  <leader>ph     Help tags",
+		"  <leader>/      Search in current buffer",
+		"  <leader>*      Search word under cursor",
 		"  <leader>e      Oil file explorer",
 		"",
 		"⚡ FLASH NAVIGATION",
@@ -274,19 +291,16 @@ local function show_cheatsheet()
 		"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
 	}
 
-	-- Create buffer
 	local buf = vim.api.nvim_create_buf(false, true)
 	vim.api.nvim_buf_set_lines(buf, 0, -1, false, cheatsheet)
 	vim.api.nvim_buf_set_option(buf, 'modifiable', false)
 	vim.api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
 
-	-- Calculate window size
 	local width = 80
 	local height = #cheatsheet + 2
 	local row = math.floor((vim.o.lines - height) / 2)
 	local col = math.floor((vim.o.columns - width) / 2)
 
-	-- Create window
 	local win = vim.api.nvim_open_win(buf, true, {
 		relative = 'editor',
 		width = width,
@@ -300,13 +314,9 @@ local function show_cheatsheet()
 	})
 
 	vim.api.nvim_win_set_option(win, 'winhl', 'Normal:Normal,FloatBorder:FloatBorder')
-
 	vim.api.nvim_buf_set_keymap(buf, 'n', 'q', ':close<CR>', { noremap = true, silent = true })
 	vim.api.nvim_buf_set_keymap(buf, 'n', '<Esc>', ':close<CR>', { noremap = true, silent = true })
 end
 
--- Command to show cheatsheet
 vim.api.nvim_create_user_command('Cheatsheet', show_cheatsheet, {})
-
--- Keymap to show cheatsheet
 vim.keymap.set('n', '<leader>?', show_cheatsheet, { desc = 'Show cheatsheet' })
