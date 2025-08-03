@@ -1,0 +1,82 @@
+#!/bin/bash
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+BAR_COLOR=0xff222222         # i3 background
+ACTIVE_COLOR=0xff00aeff      # Super bright blue
+INACTIVE_COLOR=0xff333333    # i3 dark gray
+TEXT_COLOR=0xffffffff
+
+sketchybar --bar height=35 \
+                 position=bottom \
+                 padding_left=10 \
+                 padding_right=10 \
+                 color=$BAR_COLOR \
+                 blur_radius=0 \
+                 margin=0 \
+                 y_offset=0
+
+sketchybar --default padding_left=8 \
+                     padding_right=8 \
+                     background.height=25 \
+                     background.corner_radius=0
+
+for i in {1..9}
+do
+  sketchybar --add space space.$i left \
+             --set space.$i associated_space=$i \
+                           label="$i" \
+                           label.font="Hack Nerd Font:Bold:12.0" \
+                           label.color=$TEXT_COLOR \
+                           label.padding_left=12 \
+                           label.padding_right=12 \
+                           padding_left=0 \
+                           padding_right=0 \
+                           background.color=$ACTIVE_COLOR \
+                           background.height=30 \
+                           background.drawing=off \
+                           script="$PLUGIN_DIR/space.sh" \
+                           click_script="yabai -m space --focus $i"
+done
+
+sketchybar --add item front_app left \
+           --set front_app label.color=$TEXT_COLOR \
+                          label.font="Hack Nerd Font:Bold:12.0" \
+                          padding_left=5 \
+                          script="$PLUGIN_DIR/front_app.sh" \
+           --subscribe front_app front_app_switched
+
+# RIGHT side items (like i3bar)
+sketchybar --add item clock right \
+           --set clock update_freq=10 \
+                      label.color=$TEXT_COLOR \
+                      label.font="Hack Nerd Font:Bold:12.0" \
+                      padding_right=0 \
+                      script="$PLUGIN_DIR/clock.sh"
+
+sketchybar --add item battery right \
+           --set battery update_freq=120 \
+                        label.color=$TEXT_COLOR \
+                        label.font="Hack Nerd Font:Bold:12.0" \
+                        script="$PLUGIN_DIR/battery.sh" \
+           --subscribe battery system_woke power_source_change
+
+sketchybar --add item volume right \
+           --set volume label.color=$TEXT_COLOR \
+                       label.font="Hack Nerd Font:Bold:12.0" \
+                       script="$PLUGIN_DIR/volume.sh" \
+           --subscribe volume volume_change
+
+sketchybar --add item memory right \
+           --set memory update_freq=5 \
+                       label.color=$TEXT_COLOR \
+                       label.font="Hack Nerd Font:Bold:12.0" \
+                       script="$PLUGIN_DIR/memory.sh"
+
+sketchybar --add item cpu right \
+           --set cpu update_freq=2 \
+                     label.color=$TEXT_COLOR \
+                     label.font="Hack Nerd Font:Bold:12.0" \
+                     script="$PLUGIN_DIR/cpu.sh"
+
+sketchybar --update
