@@ -1,0 +1,13 @@
+#!/bin/bash
+
+options=(
+	style=round
+	width=2
+	hidpi=on
+	active_color=0xff00ccff     # Even brighter cyan-blue
+	inactive_color=0xff333333   # i3 dark gray
+	blacklist="Finder,Preview,System Settings"
+	focused_monitor_only=off
+)
+
+borders "${options[@]}"
