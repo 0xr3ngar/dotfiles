@@ -1,7 +1,6 @@
 -- Leader key
 vim.g.mapleader = " "
 
-
 -- Options
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -42,9 +41,26 @@ vim.pack.add({
     { src = "https://github.com/sainnhe/everforest" },
     { src = "https://github.com/ThePrimeagen/harpoon" },
     { src = "https://github.com/dnlhc/glance.nvim" },
+    { src = "https://github.com/tpope/vim-fugitive" },
+    { src = "https://github.com/folke/which-key.nvim" },
+    { src = "https://github.com/nvim-tree/nvim-web-devicons" },
 })
 
 vim.cmd('packloadall')
+
+require('nvim-web-devicons').setup({
+    override = {
+        zsh = {
+            icon = "",
+            color = "#428850",
+            cterm_color = "65",
+            name = "Zsh"
+        }
+    },
+    color_icons = true,
+    default = true,
+    strict = true,
+})
 
 require('copilot').setup({
     suggestion = {
@@ -63,7 +79,6 @@ require('copilot').setup({
 
 require('copilot_cmp').setup()
 
--- Plugin configuration
 require('telescope').setup({
     defaults = {
         mappings = {
@@ -103,10 +118,6 @@ require("flash").setup({
     },
 })
 
-require("glance")
-
-vim.keymap.set('n', 'pd', '<CMD>Glance implementations<CR>')
-
 
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "javascript" },
@@ -129,6 +140,7 @@ require 'nvim-treesitter.configs'.setup {
     },
 }
 
+-- center cuz it is annoying to have text all the way to the left
 require("no-neck-pain").setup({
     width = 120,
     autocmds = {
@@ -154,6 +166,93 @@ require("no-neck-pain").setup({
             statuscolumn = "",
         },
     },
+})
+
+local wk = require("which-key")
+wk.add({
+    -- Leader mappings
+    { "<leader>?",   desc = "Show cheatsheet" },
+    { "<leader>a",   desc = "Add file to Harpoon" },
+    { "<leader>d",   desc = "Show diagnostics" },
+    { "<leader>e",   desc = "Oil file explorer" },
+    { "<leader>o",   desc = "Source config" },
+    { "<leader>q",   desc = "Diagnostics list" },
+    { "<leader>h",   desc = "Horizontal split" },
+    { "<leader>v",   desc = "Vertical split" },
+
+    -- Git group
+    { "<leader>g",   group = "git" },
+    { "<leader>gs",  desc = "Git status" },
+    { "<leader>gb",  desc = "Git blame" },
+    { "<leader>gd",  desc = "Diff file" },
+    { "<leader>gl",  desc = "Git log" },
+    { "<leader>gp",  desc = "Push" },
+    { "<leader>gP",  desc = "Pull" },
+    { "<leader>gf",  desc = "Force push (safe)" },
+    { "<leader>gm",  desc = "3-way merge view" },
+    { "<leader>gh",  desc = "Take ours (HEAD)" },
+    { "<leader>gw",  desc = "Mark resolved" },
+
+    -- Git subgroups
+    { "<leader>gpu", desc = "Push new branch" },
+    { "<leader>gr",  group = "rebase" },
+    { "<leader>gri", desc = "Interactive rebase" },
+    { "<leader>grc", desc = "Continue rebase" },
+    { "<leader>gra", desc = "Abort rebase" },
+    { "<leader>gc",  group = "commit" },
+    { "<leader>gcf", desc = "Fixup HEAD" },
+    { "<leader>gca", desc = "Amend no edit" },
+
+    -- Project/Find group
+    { "<leader>p",   group = "project/find" },
+    { "<leader>pf",  desc = "Find files" },
+    { "<leader>pg",  desc = "Git files" },
+    { "<leader>ps",  desc = "Live grep" },
+    { "<leader>pb",  desc = "Buffers" },
+    { "<leader>ph",  desc = "Help tags" },
+
+    -- LSP group
+    { "<leader>l",   group = "lsp" },
+    { "<leader>lf",  desc = "Format buffer" },
+
+    -- Rename/Replace group
+    { "<leader>r",   group = "rename/replace" },
+    { "<leader>rn",  desc = "Search/replace (visual)", mode = "v" },
+
+    -- Terminal group
+    { "<leader>t",   group = "terminal" },
+    { "<leader>tf",  desc = "Floating terminal" },
+
+    -- Non-leader mappings
+    { "K",           desc = "Hover info" },
+    { "gd",          desc = "Go to definition" },
+    { "gA",          desc = "Find all references" },
+    { "s",           desc = "Flash jump",              mode = { "n", "v", "o" } },
+    { "S",           desc = "Flash treesitter",        mode = { "n", "v", "o" } },
+    { "r",           desc = "Flash treesitter search", mode = { "v", "o" } },
+
+    -- Diagnostics navigation
+    { "]d",          desc = "Next diagnostic" },
+    { "[d",          desc = "Previous diagnostic" },
+
+    -- Control mappings
+    { "<C-e>",       desc = "Toggle Harpoon menu" },
+    { "<C-1>",       desc = "Harpoon file 1" },
+    { "<C-2>",       desc = "Harpoon file 2" },
+    { "<C-3>",       desc = "Harpoon file 3" },
+    { "<C-4>",       desc = "Harpoon file 4" },
+    { "<C-h>",       desc = "Window left" },
+    { "<C-j>",       desc = "Window down" },
+    { "<C-k>",       desc = "Window up" },
+    { "<C-l>",       desc = "Window right" },
+    { "<C-d>",       desc = "Page down centered" },
+    { "<C-u>",       desc = "Page up centered" },
+
+    -- Visual mode specific
+    { "J",           desc = "Move selection down",     mode = "v" },
+    { "K",           desc = "Move selection up",       mode = "v" },
+    { "<",           desc = "Indent left",             mode = "v" },
+    { ">",           desc = "Indent right",            mode = "v" },
 })
 
 local cmp = require('cmp')
@@ -196,6 +295,7 @@ lspconfig.clangd.setup({ capabilities = capabilities })
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
+-- Harpoon
 vim.keymap.set("n", "<leader>a", mark.add_file)
 vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
 
@@ -207,6 +307,7 @@ vim.keymap.set("n", "<C-4>", function() ui.nav_file(4) end)
 -- General keymaps
 vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
+vim.keymap.set('n', 'pd', '<CMD>Glance implementations<CR>')
 
 -- Telescope keymaps
 vim.keymap.set('n', '<leader>pf', '<cmd>Telescope find_files<cr>')
@@ -239,6 +340,22 @@ vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
+
+-- Git keymaps (Fugitive)
+vim.keymap.set("n", "<leader>gs", ":Git<CR>")                         -- Git status
+vim.keymap.set("n", "<leader>gb", ":Git blame<CR>")                   -- Git blame
+vim.keymap.set("n", "<leader>gd", ":Gdiffsplit<CR>")                  -- Diff file
+vim.keymap.set("n", "<leader>gl", ":Git log --oneline<CR>")           -- Git log
+vim.keymap.set("n", "<leader>gp", ":Git push<CR>")                    -- Push
+vim.keymap.set("n", "<leader>gP", ":Git pull<CR>")                    -- Pull
+vim.keymap.set("n", "<leader>gf", ":Git push --force-with-lease<CR>") -- Force push (safe)
+vim.keymap.set("n", "<leader>gpu", ":Git push -u origin HEAD<CR>")    -- Push new branch
+
+-- Merge conflicts
+vim.keymap.set("n", "<leader>gm", ":Gvdiffsplit!<CR>") -- 3-way merge view
+vim.keymap.set("n", "<leader>gh", ":diffget //2<CR>")  -- Take left/ours (HEAD)
+vim.keymap.set("n", "<leader>gl", ":diffget //3<CR>")  -- Take right/theirs
+vim.keymap.set("n", "<leader>gw", ":Gwrite!<CR>")      -- Mark conflict resolved
 
 -- Flash navigation
 vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end)
@@ -304,94 +421,3 @@ vim.api.nvim_create_autocmd({ 'FocusLost', 'BufLeave' }, {
 })
 
 vim.cmd("colorscheme everforest")
-
--- Updated Cheatsheet
-local function show_cheatsheet()
-    local cheatsheet = {
-        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-        "                              🚀 NEOVIM CHEATSHEET 🚀                              ",
-        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-        "",
-        "🔭 TELESCOPE NAVIGATION",
-        "  <leader>pf     Find files",
-        "  <leader>pg     Git files",
-        "  <leader>ps     Live grep (search project)",
-        "  <leader>pb     Switch buffers",
-        "  <leader>ph     Help tags",
-        "  <leader>/      Search in current buffer",
-        "  <leader>*      Search word under cursor",
-        "  <leader>e      Oil file explorer",
-        "",
-        "⚡ FLASH NAVIGATION",
-        "  s              Flash jump anywhere",
-        "  S              Flash treesitter (functions, classes)",
-        "  r              Flash treesitter search",
-        "  <C-s>          Toggle flash in search mode",
-        "",
-        "🔧 GENERAL",
-        "  <leader>o      Update & source config",
-        "  <leader>lf     Format buffer",
-        "  <leader>tf     Floating terminal",
-        "",
-        "🚀 MOVEMENT",
-        "  <C-d>          Page down (centered)",
-        "  <C-u>          Page up (centered)",
-        "",
-        "👁️ VISUAL MODE",
-        "  <leader>rn     Search/replace selection",
-        "  J              Move selection down",
-        "  K              Move selection up",
-        "  <              Indent left (stay in visual)",
-        "  >              Indent right (stay in visual)",
-        "",
-        "🪟 WINDOW MANAGEMENT",
-        "  <C-h/j/k/l>    Navigate windows",
-        "  <C-↑/↓/←/→>    Resize windows",
-        "",
-        "🔍 LSP (when attached)",
-        "  K              Hover info",
-        "  gd             Go to definition",
-        "  <leader>d      Show diagnostics",
-        "  ]d / [d        Next/prev diagnostic",
-        "  <leader>q      Diagnostics list",
-        "",
-        "💡 COMPLETION",
-        "  <Tab>          Next completion",
-        "  <S-Tab>        Previous completion",
-        "  <CR>           Confirm completion",
-        "  <C-Space>      Trigger completion",
-        "",
-        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-        "                              Press 'q' or <Esc> to close                              ",
-        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-    }
-
-    local buf = vim.api.nvim_create_buf(false, true)
-    vim.api.nvim_buf_set_lines(buf, 0, -1, false, cheatsheet)
-    vim.api.nvim_buf_set_option(buf, 'modifiable', false)
-    vim.api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
-
-    local width = 80
-    local height = #cheatsheet + 2
-    local row = math.floor((vim.o.lines - height) / 2)
-    local col = math.floor((vim.o.columns - width) / 2)
-
-    local win = vim.api.nvim_open_win(buf, true, {
-        relative = 'editor',
-        width = width,
-        height = height,
-        row = row,
-        col = col,
-        style = 'minimal',
-        border = 'rounded',
-        title = ' Cheatsheet ',
-        title_pos = 'center',
-    })
-
-    vim.api.nvim_win_set_option(win, 'winhl', 'Normal:Normal,FloatBorder:FloatBorder')
-    vim.api.nvim_buf_set_keymap(buf, 'n', 'q', ':close<CR>', { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(buf, 'n', '<Esc>', ':close<CR>', { noremap = true, silent = true })
-end
-
-vim.api.nvim_create_user_command('Cheatsheet', show_cheatsheet, {})
-vim.keymap.set('n', '<leader>?', show_cheatsheet, { desc = 'Show cheatsheet' })
