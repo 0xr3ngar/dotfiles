@@ -44,9 +44,21 @@ vim.pack.add({
     { src = "https://github.com/tpope/vim-fugitive" },
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
+    { src = "https://github.com/sphamba/smear-cursor.nvim" },
 })
 
 vim.cmd('packloadall')
+
+
+require('smear_cursor').setup({
+    cursor_color = "#ff6b6b",
+    normal_bg = "#232A2E",
+    smear_between_buffers = true,
+    smear_between_neighbor_lines = true,
+    legacy_computing_symbols_support = false,
+    distance_stop_animating = 0.5,
+    hide_target_hack = false,
+})
 
 require('nvim-web-devicons').setup({
     override = {
@@ -88,9 +100,16 @@ require('telescope').setup({
             },
         },
     },
+    pickers = {
+        find_command = { 'rg', '--files', '--hidden', '-g', '!.git' },
+    }
 })
 
-require("oil").setup()
+require("oil").setup({
+    view_options = {
+        show_hidden = true,
+    },
+})
 require("mason").setup()
 require("gitsigns").setup({
     current_line_blame = true,
@@ -128,14 +147,7 @@ require 'nvim-treesitter.configs'.setup {
 
     highlight = {
         enable = true,
-        disable = function(_, buf)
-            local max_filesize = 100 * 1024 -- 100 KB
-            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-            if ok and stats and stats.size > max_filesize then
-                return true
-            end
-        end,
-
+        disable = false,
         additional_vim_regex_highlighting = false,
     },
 }
