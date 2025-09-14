@@ -1,0 +1,55 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnSave": true,
+    "yaml.schemas": {
+        "file:///Users/bogdann/.cursor/extensions/atlassian.atlascode-3.8.15/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "redhat.telemetry.enabled": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[go]": {
+        "editor.defaultFormatter": "golang.go"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "eslint.format.enable": true,
+    "eslint.codeActionsOnSave.rules": null,
+    "githubPullRequests.pullBranch": "never",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.productIconTheme": "bongocat",
+    "editor.formatOnPaste": true,
+    "workbench.colorTheme": "Spirited Away",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.lineNumbers": "relative",
+    "editor.cursorBlinking": "expand",
+    "editor.minimap.size": "fill",
+    "editor.minimap.side": "left",
+    "workbench.editor.tabActionLocation": "left",
+    "editor.stickyScroll.enabled": false,
+    "editor.defaultFormatter": "biomejs.biome",
+    "atlascode.jira.lastCreateSiteAndProject": {
+        "siteId": "",
+        "projectKey": ""
+    },
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontLigatures": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "explorer.confirmDragAndDrop": false,
+    "editor.smoothScrolling": true,
+    "workbench.preferredHighContrastColorTheme": "Spirited Away",
+    "githubPullRequests.terminalLinksHandler": "github",
+    "editor.inlineSuggest.edits.showCollapsed": true,
+    "terminal.integrated.tabs.location": "left",
+    "workbench.panel.showLabels": false,
+    "workbench.sideBar.location": "right",
+    "workbench.editor.centeredLayoutAutoResize": false,
+    "zenMode.hideActivityBar": false,
+    "zenMode.hideLineNumbers": false,
+    "vim.useSystemClipboard": true,
+    "vim.easymotion": true,
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "editor.minimap.enabled": true
+}
