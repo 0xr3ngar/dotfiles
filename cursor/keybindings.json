@@ -1,0 +1,118 @@
+// Place your key bindings in this file to override the defaults
+[
+	{
+		"key": "shift+g",
+		"command": "-list.focusLast",
+		"when": "listFocus && !inputFocus && (vim.mode == 'Normal' || vim.mode == 'Visual')"
+	},
+	{
+		"key": "shift+k",
+		"command": "editor.action.showHover",
+		"when": "editorTextFocus && !editorReadonly"
+	},
+	{
+		"key": "g shift+a",
+		"command": "editor.action.referenceSearch.trigger",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "g d",
+		"command": "editor.action.revealDefinition",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space p s",
+		"command": "workbench.action.findInFiles",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space p f",
+		"command": "workbench.action.quickOpen",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "g g",
+		"command": "cursorTop",
+		"when": "editorTextFocus && (vim.mode == 'Normal' || vim.mode == 'Visual')"
+	},
+	{
+		"key": "space v",
+		"command": "workbench.action.splitEditor",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space h",
+		"command": "workbench.action.navigateLeft",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space r n",
+		"command": "editor.action.rename",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space o",
+		"command": "workbench.view.explorer",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space g s",
+		"command": "workbench.view.scm",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space t w",
+		"command": "workbench.action.terminal.toggleTerminal",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space t n",
+		"command": "workbench.action.terminal.new",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space s",
+		"command": "workbench.action.showCommands",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space z",
+		"command": "workbench.action.toggleZenMode",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space p t",
+		"command": "workbench.action.togglePanel",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space s b",
+		"command": "workbench.action.toggleSidebarVisibility",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space m",
+		"command": "editor.action.toggleMinimap",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "space s a",
+		"command": "editor.action.selectHighlights",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "g i",
+		"command": "editor.action.goToImplementation",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "g p",
+		"command": "editor.action.peekDefinition",
+		"when": "editorTextFocus && vim.mode == 'Normal'"
+	},
+	{
+		"key": "g c",
+		"command": "editor.action.commentLine",
+		"when": "editorTextFocus && (vim.mode == 'Normal' || vim.mode == 'Visual')"
+	}
+]
