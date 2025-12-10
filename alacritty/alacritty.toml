@@ -6,6 +6,7 @@ dynamic_title = true
 dynamic_padding=true
 padding={ x = 16, y = 4 }
 startup_mode="maximized"
+option_as_alt = "Both"
 title="Terminal"
 
 [font]
