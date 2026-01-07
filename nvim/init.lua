@@ -13,7 +13,7 @@ vim.opt.syntax = "enable"
 vim.opt.termguicolors = true
 vim.opt.winborder = "rounded"
 vim.opt.list = true
-vim.opt.listchars = { tab = "..", trail = ".", nbsp = "_" }
+vim.opt.listchars = { tab = "..", trail = ".", nbsp = "_", space = "." }
 vim.opt.fillchars = { eob = " " }
 vim.opt.scrolloff = 20
 vim.opt.clipboard = "unnamedplus"
@@ -56,9 +56,12 @@ vim.pack.add({
     { src = "https://github.com/tpope/vim-fugitive" },
 
     -- UI
-    { src = "https://github.com/shortcuts/no-neck-pain.nvim" },
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/sphamba/smear-cursor.nvim" },
+
+    -- AI
+    { src = "https://github.com/folke/snacks.nvim" },
+    { src = "https://github.com/NickvanDyke/opencode.nvim" },
 
     -- Colorschemes
     { src = "https://github.com/namrabtw/rusty.nvim" },
@@ -152,30 +155,34 @@ require("nvim-treesitter.configs").setup({
     },
 })
 
-require("no-neck-pain").setup({
-    width = 120,
-    autocmds = {
-        enableOnVimEnter = true,
-        enableOnTabEnter = true,
-        skipEnteringNoNeckPainBuffer = true,
-    },
-    buffers = {
-        colors = { background = "none" },
-        bo = {
-            filetype = "no-neck-pain",
-            buftype = "nofile",
-            bufhidden = "hide",
-            buflisted = false,
-            swapfile = false,
-        },
-        wo = {
-            number = false,
-            relativenumber = false,
-            signcolumn = "no",
-            statuscolumn = "",
-        },
-    },
+require("snacks").setup({
+    input = {},
+    picker = {},
+    terminal = {},
 })
+
+vim.o.autoread = true
+vim.g.opencode_opts = {
+    provider = {
+        cmd = vim.fn.expand("~/.local/bin/opencode-wrapper"),
+        enabled = "snacks",
+        snacks = {
+            env = {
+                OPENCODE_CONFIG = vim.fn.expand("~/.config/opencode/opencode.json"),
+            },
+            win = {
+                position = "left",
+                width = 0.2,
+                wo = {
+                    winbar = "",
+                },
+                bo = {
+                    filetype = "opencode_terminal",
+                },
+            },
+        },
+    },
+}
 
 -- Which-Key
 local wk = require("which-key")
@@ -230,14 +237,23 @@ wk.add({
     { "<leader>t",   group = "terminal" },
     { "<leader>tf",  desc = "Floating terminal" },
 
+    -- opencode
+    { "<M-a>",       desc = "Ask opencode",            mode = { "n", "x" } },
+    { "<M-x>",       desc = "Execute opencode action", mode = { "n", "x" } },
+    { "<M-.>",       desc = "Toggle opencode",         mode = { "n", "t" } },
+    { "go",          desc = "Add range to opencode",   mode = { "n", "x" } },
+    { "goo",         desc = "Add line to opencode" },
+    { "<M-u>",       desc = "opencode half page up" },
+    { "<M-d>",       desc = "opencode half page down" },
+
     -- Non-leader
     { "K",           desc = "Hover info" },
     { "gd",          desc = "Go to definition" },
     { "gi",          desc = "Go to implementation" },
     { "gt",          desc = "Go to type definition" },
     { "gA",          desc = "Find all references" },
-    { "s",           desc = "Flash jump",           mode = { "n", "v", "o" } },
-    { "S",           desc = "Flash treesitter",     mode = { "n", "v", "o" } },
+    { "s",           desc = "Flash jump",              mode = { "n", "v", "o" } },
+    { "S",           desc = "Flash treesitter",        mode = { "n", "v", "o" } },
 
     -- Diagnostics
     { "]d",          desc = "Next diagnostic" },
@@ -261,11 +277,11 @@ wk.add({
     { "<C-u>",       desc = "Page up centered" },
 
     -- Visual
-    { "J",           desc = "Move selection down",  mode = "v" },
-    { "K",           desc = "Move selection up",    mode = "v" },
-    { "<",           desc = "Indent left",          mode = "v" },
-    { ">",           desc = "Indent right",         mode = "v" },
-    { "<leader>rn",  desc = "Search/replace",       mode = "v" },
+    { "J",           desc = "Move selection down",     mode = "v" },
+    { "K",           desc = "Move selection up",       mode = "v" },
+    { "<",           desc = "Indent left",             mode = "v" },
+    { ">",           desc = "Indent right",            mode = "v" },
+    { "<leader>rn",  desc = "Search/replace",          mode = "v" },
 })
 
 -- Completion
@@ -303,6 +319,19 @@ lspconfig.lua_ls.setup({ capabilities = capabilities })
 lspconfig.ts_ls.setup({ capabilities = capabilities })
 lspconfig.eslint.setup({ capabilities = capabilities })
 lspconfig.clangd.setup({ capabilities = capabilities })
+
+vim.keymap.set({ "n", "x" }, "<M-a>", function() require("opencode").ask("@this: ", { submit = true }) end,
+    { desc = "Ask opencode" })
+vim.keymap.set({ "n", "x" }, "<M-x>", function() require("opencode").select() end, { desc = "Execute opencode action…" })
+vim.keymap.set({ "n", "t" }, "<M-.>", function() require("opencode").toggle() end, { desc = "Toggle opencode" })
+vim.keymap.set({ "n", "x" }, "go", function() return require("opencode").operator("@this ") end,
+    { expr = true, desc = "Add range to opencode" })
+vim.keymap.set("n", "goo", function() return require("opencode").operator("@this ") .. "_" end,
+    { expr = true, desc = "Add line to opencode" })
+vim.keymap.set("n", "<M-u>", function() require("opencode").command("session.half.page.up") end,
+    { desc = "opencode half page up" })
+vim.keymap.set("n", "<M-d>", function() require("opencode").command("session.half.page.down") end,
+    { desc = "opencode half page down" })
 
 -- Harpoon
 local mark = require("harpoon.mark")
@@ -349,10 +378,10 @@ vim.keymap.set("v", "y", "ygv<Esc>")
 -- Keymaps: Windows
 vim.keymap.set("n", "<leader>v", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>s", ":split<CR>")
-vim.keymap.set("n", "<C-Up>", ":resize +2<CR>")
-vim.keymap.set("n", "<C-Down>", ":resize -2<CR>")
-vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>")
-vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>")
+vim.keymap.set("n", "<S-C-Up>", ":resize +2<CR>")
+vim.keymap.set("n", "<S-C-Down>", ":resize -2<CR>")
+vim.keymap.set("n", "<S-C-Left>", ":vertical resize -2<CR>")
+vim.keymap.set("n", "<S-C-Right>", ":vertical resize +2<CR>")
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
@@ -380,6 +409,10 @@ vim.keymap.set({ "c" }, "<c-s>", function() require("flash").toggle() end)
 
 -- Keymaps: Terminal
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
+vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
+vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
 
 vim.keymap.set("n", "<leader>tf", function()
     local buf = vim.api.nvim_create_buf(false, true)
@@ -402,7 +435,6 @@ vim.keymap.set("n", "<leader>tf", function()
     vim.cmd("startinsert")
 end)
 
--- Autocmds
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local opts = { buffer = ev.buf }
@@ -449,7 +481,6 @@ vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
     end,
 })
 
--- Colorscheme & Transparency
 vim.cmd("colorscheme everforest")
 
 local transparent_groups = {
