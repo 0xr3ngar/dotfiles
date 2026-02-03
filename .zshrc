@@ -37,6 +37,7 @@ export PATH="$(brew --prefix llvm@19)/bin:$PATH"
 
 plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
 
 function glc() {
   local count=${1:-10}
@@ -68,6 +69,25 @@ function glc() {
   fi
 }
 
-
-source $ZSH/oh-my-zsh.sh
-
+unalias gp 2>/dev/null
+function gp() {
+  local output
+  
+  if [[ $# -eq 0 ]] && ! git rev-parse --abbrev-ref --symbolic-full-name @{u} &>/dev/null; then
+    local branch=$(git branch --show-current)
+    output=$(git push -u origin "$branch" 2>&1)
+  else
+    output=$(git push "$@" 2>&1)
+  fi
+  
+  local exit_code=$?
+  echo "$output"
+  
+  local url=$(echo "$output" | grep -oE 'https://[^ ]+/pull/new/[^ ]+' | tr -d '[:space:]')
+  if [[ -n "$url" ]]; then
+    echo -n "$url" | pbcopy
+    echo "\n✓ Copied: $url"
+  fi
+  
+  return $exit_code
+}
