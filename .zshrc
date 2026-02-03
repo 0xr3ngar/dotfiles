@@ -37,5 +37,37 @@ export PATH="$(brew --prefix llvm@19)/bin:$PATH"
 
 plugins=(git)
 
+
+function glc() {
+  local count=${1:-10}
+  local commits=("${(@f)$(git log --pretty=format:'%h %s' -n $count 2>/dev/null)}")
+  
+  if [[ ${#commits[@]} -eq 0 ]]; then
+    echo "Not a git repository or no commits found"
+    return 1
+  fi
+  
+  for i in {1..${#commits[@]}}; do
+    echo "$i) ${commits[$i]}"
+  done
+  
+  echo ""
+  read "choice?Enter number to copy SHA (or q to quit): "
+  
+  if [[ "$choice" == "q" ]]; then
+    return 0
+  fi
+  
+  if [[ "$choice" =~ ^[0-9]+$ ]] && (( choice >= 1 && choice <= ${#commits[@]} )); then
+    local sha="${commits[$choice]%% *}"
+    echo -n "$sha" | pbcopy
+    echo "Copied: $sha"
+  else
+    echo "Invalid selection"
+    return 1
+  fi
+}
+
+
 source $ZSH/oh-my-zsh.sh
 
