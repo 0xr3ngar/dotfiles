@@ -35,6 +35,7 @@ vim.pack.add({
     -- AI
     { src = "https://github.com/folke/snacks.nvim" },
     { src = "https://github.com/NickvanDyke/opencode.nvim" },
+    { src = "https://github.com/ThePrimeagen/99" },
 
     { src = "https://github.com/datsfilipe/vesper.nvim" },
 })
@@ -54,3 +55,4 @@ require("plugins.whichkey")
 require("plugins.ui")
 require("plugins.surround")
 require("plugins.opencode")
+require("plugins.99")
