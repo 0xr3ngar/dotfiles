@@ -16,18 +16,18 @@ require("snacks").setup({
 
 vim.cmd("colorscheme vesper")
 
-local transparent_groups = {
-    "Normal",
-    "NormalFloat",
-    "NormalNC",
-    "SignColumn",
-    "EndOfBuffer",
-    "LineNr",
-    "CursorLineNr",
-    "StatusLine",
-    "StatusLineNC",
-}
-
-for _, group in ipairs(transparent_groups) do
-    vim.api.nvim_set_hl(0, group, { bg = "none" })
-end
+-- local transparent_groups = {
+--     "Normal",
+--     "NormalFloat",
+--     "NormalNC",
+--     "SignColumn",
+--     "EndOfBuffer",
+--     "LineNr",
+--     "CursorLineNr",
+--     "StatusLine",
+--     "StatusLineNC",
+-- }
+--
+-- for _, group in ipairs(transparent_groups) do
+--     vim.api.nvim_set_hl(0, group, { bg = "none" })
+-- end
