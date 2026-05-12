@@ -8,12 +8,6 @@ require("smear_cursor").setup({
     hide_target_hack = false,
 })
 
-require("snacks").setup({
-    input = {},
-    picker = {},
-    terminal = {},
-})
-
 vim.cmd("colorscheme vesper")
 
 -- local transparent_groups = {

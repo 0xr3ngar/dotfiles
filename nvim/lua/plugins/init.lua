@@ -15,7 +15,7 @@ vim.pack.add({
     { src = "https://github.com/hrsh7th/nvim-cmp" },
     { src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
     { src = "https://github.com/hrsh7th/cmp-buffer" },
-    { src = "https://github.com/supermaven-inc/supermaven-nvim" },
+
     { src = "https://github.com/dnlhc/glance.nvim" },
 
     -- Treesitter
@@ -33,10 +33,6 @@ vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.surround" },
 
     -- AI
-    { src = "https://github.com/folke/snacks.nvim" },
-    { src = "https://github.com/NickvanDyke/opencode.nvim" },
-    { src = "https://github.com/ThePrimeagen/99" },
-
     { src = "https://github.com/datsfilipe/vesper.nvim" },
 })
 
@@ -54,5 +50,3 @@ require("plugins.git")
 require("plugins.whichkey")
 require("plugins.ui")
 require("plugins.surround")
-require("plugins.opencode")
-require("plugins.99")
