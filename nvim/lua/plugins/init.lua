@@ -19,7 +19,7 @@ vim.pack.add({
     { src = "https://github.com/dnlhc/glance.nvim" },
 
     -- Treesitter
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 
     -- Git
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
@@ -28,12 +28,13 @@ vim.pack.add({
     -- UI
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/sphamba/smear-cursor.nvim" },
+    { src = "https://github.com/ember-theme/nvim", name = "ember" },
 
     -- Editing
     { src = "https://github.com/nvim-mini/mini.surround" },
 
     -- AI
-    { src = "https://github.com/datsfilipe/vesper.nvim" },
+    -- { src = "https://github.com/datsfilipe/vesper.nvim" },
 })
 
 vim.cmd("packloadall")
