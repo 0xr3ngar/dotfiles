@@ -1,10 +1,28 @@
-require("nvim-treesitter.configs").setup({
-    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "javascript", "typescript", "tsx" },
-    sync_install = false,
-    auto_install = true,
-    highlight = {
-        enable = true,
-        disable = false,
-        additional_vim_regex_highlighting = false,
-    },
+local treesitter = require("nvim-treesitter")
+
+treesitter.setup({
+    install_dir = vim.fn.stdpath("data") .. "/site",
+})
+
+vim.opt.runtimepath:prepend(vim.fn.stdpath("data") .. "/site/pack/core/opt/nvim-treesitter/runtime")
+
+local languages = {
+    "c",
+    "javascript",
+    "javascriptreact",
+    "lua",
+    "markdown",
+    "python",
+    "query",
+    "typescript",
+    "typescriptreact",
+    "vim",
+    "vimdoc",
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = languages,
+    callback = function()
+        pcall(vim.treesitter.start)
+    end,
 })

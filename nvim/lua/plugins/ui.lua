@@ -8,7 +8,7 @@ require("smear_cursor").setup({
     hide_target_hack = false,
 })
 
-vim.cmd("colorscheme vesper")
+vim.cmd.colorscheme("ember")
 
 -- local transparent_groups = {
 --     "Normal",

@@ -1,7 +1,7 @@
 [window]
 decorations = "full"
-opacity = 0.80
-blur=true
+opacity = 1.0
+blur=false
 dynamic_title = true
 dynamic_padding=true
 padding={ x = 16, y = 4 }
@@ -40,28 +40,36 @@ x = 0
 y = 0
 
 [colors.primary]
-background = "#1d1f21"
-foreground = "#c5c8c6"
+background = "#1c1b19"
+foreground = "#d8d0c0"
+
+[colors.cursor]
+text = "#1c1b19"
+cursor = "#e08060"
+
+[colors.selection]
+text = "#d8d0c0"
+background = "#3e3c38"
 
 [colors.normal]
-black = "#1d1f21"
-red = "#cc6666"
-green = "#b5bd68"
-yellow = "#f0c674"
-blue = "#81a2be"
-magenta = "#b294bb"
-cyan = "#8abeb7"
-white = "#c5c8c6"
+black = "#151412"
+red = "#e08060"
+green = "#8a9868"
+yellow = "#c8b468"
+blue = "#7890a0"
+magenta = "#988090"
+cyan = "#80a090"
+white = "#d8d0c0"
 
 [colors.bright]
-black = "#666666"
-red = "#d54e53"
-green = "#b9ca4a"
-yellow = "#e7c547"
-blue = "#7aa6da"
-magenta = "#c397d8"
-cyan = "#70c0b1"
-white = "#eaeaea"
+black = "#706c61"
+red = "#b07878"
+green = "#8a9868"
+yellow = "#c8b468"
+blue = "#7890a0"
+magenta = "#988090"
+cyan = "#80a090"
+white = "#f0e8d8"
 
 [cursor]
 blink_interval = 750
@@ -81,7 +89,7 @@ action = "PasteSelection"
 [bell]
 animation = "EaseOutExpo"
 duration = 0
-color = "#ffffff"
+color = "#e08060"
 
 [[keyboard.bindings]]
 key = "V"
@@ -112,3 +120,8 @@ action = "IncreaseFontSize"
 key = "Minus"
 mods = "Control"
 action = "DecreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\n"
