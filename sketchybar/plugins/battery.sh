@@ -7,6 +7,12 @@ if [ "$PERCENTAGE" = "" ]; then
   exit 0
 fi
 
-# The item invoking this script (name $NAME) will get its icon and label
-# updated with the current battery status
-sketchybar --set "$NAME" label="BAT ${PERCENTAGE}%"
+if [ -n "$CHARGING" ]; then
+  COLOR=0xffc8b468
+elif [ "$PERCENTAGE" -le 20 ]; then
+  COLOR=0xffe08060
+else
+  COLOR=0xffd8d0c0
+fi
+
+sketchybar --set "$NAME" label="BAT ${PERCENTAGE}%" label.color="$COLOR"
