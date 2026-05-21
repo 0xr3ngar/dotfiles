@@ -53,21 +53,21 @@ background = "#3e3c38"
 
 [colors.normal]
 black   = "#1c1b19"
-red     = "#e08060"
+red     = "#b07878"
 green   = "#8a9868"
 yellow  = "#c8b468"
 blue    = "#7890a0"
-magenta = "#b07878"
+magenta = "#988090"
 cyan    = "#80a090"
 white   = "#d8d0c0"
 
 [colors.bright]
-black   = "#1c1b19"
-red     = "#e08060"
+black   = "#3e3c38"
+red     = "#b07878"
 green   = "#8a9868"
 yellow  = "#c8b468"
 blue    = "#7890a0"
-magenta = "#b07878"
+magenta = "#988090"
 cyan    = "#80a090"
 white   = "#d8d0c0"
 
