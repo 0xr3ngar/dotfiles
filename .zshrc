@@ -86,7 +86,14 @@ function prompt_git_info() {
   print -r -- " %F{$EMBER_FG_ALT}[%F{$EMBER_GOLD}$branch%F{$EMBER_FG_ALT}]%f"
 }
 
-PROMPT='%F{$EMBER_CORAL}%2~%f$(prompt_git_info) %F{$EMBER_CORAL}»%f '
+function prompt_exit_code() {
+  local exit_code=$?
+  (( exit_code == 0 )) && return
+
+  print -r -- "%F{$EMBER_CORAL}✗ $exit_code%f "
+}
+
+PROMPT='$(prompt_exit_code)%F{$EMBER_CORAL}%2~%f$(prompt_git_info) %F{$EMBER_CORAL}»%f '
 
 # =============================================================================
 # Keybindings
