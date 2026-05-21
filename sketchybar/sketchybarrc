@@ -2,12 +2,12 @@
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
-# Colors - Everforest inspired
-BAR_COLOR=0xdd1e2326
-ACTIVE_COLOR=0xffa7c080
-INACTIVE_COLOR=0xff2d353b
-TEXT_COLOR=0xffd3c6aa
-ACCENT_COLOR=0xff7fbbb3
+# Colors - Ember
+BAR_COLOR=0xdd1c1b19
+ACTIVE_COLOR=0xffe08060
+INACTIVE_COLOR=0xff3e3c38
+TEXT_COLOR=0xffd8d0c0
+ACCENT_COLOR=0xffc8b468
 
 # Bar
 sketchybar --bar height=32 \

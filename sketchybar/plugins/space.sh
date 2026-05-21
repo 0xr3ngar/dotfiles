@@ -10,8 +10,8 @@
 
 if [ "$SELECTED" = "true" ]; then
     sketchybar --set $NAME background.drawing=on \
-                          icon.color=0xff1e2326
+                          icon.color=0xff1c1b19
 else
     sketchybar --set $NAME background.drawing=off \
-                          icon.color=0xffd3c6aa
+                          icon.color=0xff908a7e
 fi
