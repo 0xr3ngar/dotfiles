@@ -1,5 +1,5 @@
 require("smear_cursor").setup({
-    cursor_color = "#ff6b6b",
+    cursor_color = "#e08060",
     normal_bg = "none",
     smear_between_buffers = true,
     smear_between_neighbor_lines = true,
