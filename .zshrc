@@ -186,6 +186,24 @@ function glc() {
   fi
 }
 
+# Switch to a branch if it exists, track it from origin if remote-only, otherwise create it.
+function gsw() {
+  if [[ $# -ne 1 ]]; then
+    echo "Usage: gsw <branch>"
+    return 1
+  fi
+
+  local branch="$1"
+
+  if git show-ref --verify --quiet "refs/heads/$branch"; then
+    git switch "$branch"
+  elif git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+    git switch --track "origin/$branch"
+  else
+    git switch -c "$branch"
+  fi
+}
+
 # git push that auto-sets upstream and copies the PR URL.
 unalias gp 2>/dev/null
 function gp() {
