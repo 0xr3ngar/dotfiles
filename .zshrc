@@ -10,6 +10,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PNPM_HOME="$HOME/Library/pnpm"
 export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Machine-local secrets (gitignored)
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+gui:
+  theme:
+    activeBorderColor:
+      - '#e08060'
+      - bold
+    inactiveBorderColor:
+      - '#706c61'
+    searchingActiveBorderColor:
+      - '#80a090'
+      - bold
+    optionsTextColor:
+      - '#c8b468'
+    selectedLineBgColor:
+      - '#3e3c38'
+    inactiveViewSelectedLineBgColor:
+      - '#2e2d2a'
+    cherryPickedCommitFgColor:
+      - '#d8d0c0'
+    cherryPickedCommitBgColor:
+      - '#7890a0'
+    markedBaseCommitFgColor:
+      - '#1c1b19'
+    markedBaseCommitBgColor:
+      - '#c8b468'
+    unstagedChangesColor:
+      - '#e08060'
+    defaultFgColor:
+      - '#d8d0c0'
