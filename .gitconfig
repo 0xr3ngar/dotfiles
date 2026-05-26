@@ -1,0 +1,27 @@
+[delta "ember"]
+	dark = true
+	syntax-theme = ansi
+	line-numbers = true
+	relative-paths = true
+	hyperlinks = true
+	hyperlinks-file-link-format = lazygit-edit://{path}:{line}
+	file-style = "#e08060 bold"
+	file-decoration-style = "#3e3c38 ul"
+	hunk-header-style = file line-number syntax
+	hunk-header-file-style = "#c8b468 bold"
+	hunk-header-line-number-style = "#7890a0"
+	hunk-header-decoration-style = "#3e3c38 box"
+	minus-style = "syntax #2b2221"
+	minus-emph-style = "syntax #3a2926"
+	minus-non-emph-style = "syntax #2b2221"
+	plus-style = "syntax #25291f"
+	plus-emph-style = "syntax #34402a"
+	plus-non-emph-style = "syntax #25291f"
+	zero-style = syntax normal
+	line-numbers-left-style = "#706c61"
+	line-numbers-right-style = "#706c61"
+	line-numbers-minus-style = "#b07878"
+	line-numbers-plus-style = "#8a9868"
+	line-numbers-zero-style = "#585550"
+	commit-style = "#988090 bold"
+	commit-decoration-style = "#3e3c38 box"
