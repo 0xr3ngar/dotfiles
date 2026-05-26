@@ -1,29 +1,63 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 gui:
+  sidePanelWidth: 0.3
+  expandFocusedSidePanel: true
+  showCommandLog: false
+  showRandomTip: false
+  border: rounded
   theme:
     activeBorderColor:
       - '#e08060'
       - bold
     inactiveBorderColor:
-      - '#706c61'
+      - '#3e3c38'
     searchingActiveBorderColor:
       - '#80a090'
       - bold
     optionsTextColor:
-      - '#c8b468'
-    selectedLineBgColor:
-      - '#3e3c38'
-    inactiveViewSelectedLineBgColor:
-      - '#2e2d2a'
-    cherryPickedCommitFgColor:
-      - '#d8d0c0'
-    cherryPickedCommitBgColor:
       - '#7890a0'
+    selectedLineBgColor:
+      - '#252422'
+    inactiveViewSelectedLineBgColor:
+      - '#242320'
+    cherryPickedCommitFgColor:
+      - '#7890a0'
+    cherryPickedCommitBgColor:
+      - '#252422'
     markedBaseCommitFgColor:
-      - '#1c1b19'
-    markedBaseCommitBgColor:
       - '#c8b468'
+    markedBaseCommitBgColor:
+      - '#252422'
     unstagedChangesColor:
-      - '#e08060'
+      - '#b07878'
     defaultFgColor:
       - '#d8d0c0'
+git:
+  pagers:
+    - pager: 'delta --features ember --paging=never'
+customCommands:
+  - key: X
+    description: Ember git rituals
+    commandMenu:
+      - key: f
+        context: commits
+        description: Stage all changes and fixup selected commit
+        prompts:
+          - type: confirm
+            title: Fixup selected commit?
+            body: Stage all changes and commit them as a fixup for the selected commit.
+        command: 'git add -A && git commit --fixup={{.SelectedCommit.Hash}}'
+        loadingText: Creating fixup commit
+        output: log
+      - key: a
+        context: commits
+        description: Autosquash current branch from selected commit
+        prompts:
+          - type: confirm
+            title: Autosquash branch?
+            body: Rebase with --autosquash starting at the parent of the selected commit. This rewrites local history but does not push.
+        command: "GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash '{{.SelectedCommit.Hash}}^'"
+        loadingText: Autosquashing branch
+        output: terminal
+        after:
+          checkForConflicts: true
