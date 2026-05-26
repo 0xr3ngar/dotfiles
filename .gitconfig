@@ -1,3 +1,21 @@
+[alias]
+	a = add
+	aa = add -A
+	ap = add -p
+	br = branch
+	ci = commit
+	co = checkout
+	d = diff
+	ds = diff --staged
+	lg = log --graph --pretty=format:'%C(auto)%h %C(magenta)%an%C(reset) %C(cyan)%d%C(reset) %s %C(yellow)%cr%C(reset)' --all
+	pf = push --force-with-lease
+	root = rev-parse --show-toplevel
+	s = status --short --branch
+	sw = switch
+	whoops = reset --soft HEAD~1
+	amend = commit --amend --no-edit
+	fixup = commit --fixup
+
 [delta "ember"]
 	dark = true
 	syntax-theme = ansi
