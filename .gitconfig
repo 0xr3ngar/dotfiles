@@ -1,3 +1,14 @@
+[user]
+	name = 0xr3ngar
+	email = 0xr3ngar@users.noreply.github.com
+	signingkey = ~/.ssh/id_ed25519.pub
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	format = ssh
+
 [alias]
 	a = add
 	aa = add -A
