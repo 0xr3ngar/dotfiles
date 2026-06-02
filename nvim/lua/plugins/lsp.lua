@@ -1,5 +1,10 @@
 require("mason").setup()
 
+require("mason-lspconfig").setup({
+    ensure_installed = { "lua_ls", "ts_ls", "eslint", "clangd" },
+    automatic_enable = true,
+})
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Define LSP configurations using the new vim.lsp API (Neovim 0.11+)
@@ -27,7 +32,22 @@ vim.lsp.config('pylsp', {
     end,
 })
 
--- Enable the servers
-vim.lsp.enable({ 'lua_ls', 'ts_ls', 'eslint', 'clangd', 'pylsp' })
+local servers = {
+    { name = "lua_ls", executable = "lua-language-server" },
+    { name = "ts_ls",  executable = "typescript-language-server" },
+    { name = "eslint", executable = "vscode-eslint-language-server" },
+    { name = "clangd", executable = "clangd" },
+    { name = "pylsp",  executable = "uv" },
+}
+
+local enabled_servers = {}
+
+for _, server in ipairs(servers) do
+    if vim.fn.executable(server.executable) == 1 then
+        table.insert(enabled_servers, server.name)
+    end
+end
+
+vim.lsp.enable(enabled_servers)
 
 vim.keymap.set("n", "pd", "<CMD>Glance implementations<CR>")

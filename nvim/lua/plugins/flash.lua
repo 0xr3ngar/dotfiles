@@ -12,6 +12,9 @@ require("flash").setup({
     modes = {
         search = { enabled = true },
         char = { enabled = true, jump_labels = true },
+        treesitter = {
+            jump = { autojump = false },
+        },
     },
 })
 

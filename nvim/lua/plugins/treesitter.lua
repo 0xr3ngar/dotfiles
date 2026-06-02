@@ -1,5 +1,20 @@
 local treesitter = require("nvim-treesitter")
 
+local parsers = {
+    "c",
+    "javascript",
+    "json",
+    "jsonc",
+    "lua",
+    "markdown",
+    "python",
+    "query",
+    "tsx",
+    "typescript",
+    "vim",
+    "vimdoc",
+}
+
 treesitter.setup({
     install_dir = vim.fn.stdpath("data") .. "/site",
 })
@@ -10,6 +25,8 @@ local languages = {
     "c",
     "javascript",
     "javascriptreact",
+    "json",
+    "jsonc",
     "lua",
     "markdown",
     "python",
@@ -19,6 +36,10 @@ local languages = {
     "vim",
     "vimdoc",
 }
+
+vim.api.nvim_create_user_command("TSInstallConfigured", function()
+    treesitter.install(parsers)
+end, {})
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = languages,
