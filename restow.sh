@@ -15,6 +15,21 @@ for file in "${HOME_FILES[@]}"; do
     echo "  ~/$file"
 done
 
+# Window manager configs expected in $HOME by skhd/yabai
+HOME_LINKS=(
+    "yabai/skhdrc:.skhdrc"
+    "yabai/yabairc:.yabairc"
+)
+for link in "${HOME_LINKS[@]}"; do
+    source_path="${link%%:*}"
+    target_path="${link##*:}"
+    target="$HOME/$target_path"
+    source="$(pwd)/$source_path"
+    rm -f "$target"
+    ln -s "$source" "$target"
+    echo "  ~/$target_path"
+done
+
 # ~/.config folders
 CONFIG_FOLDERS=(
     alacritty borders cursor i3 i3status lazygit
