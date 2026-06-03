@@ -258,4 +258,5 @@ function nvm() { load_nvm nvm "$@" }
 export OPENCODE_CONFIG="$HOME/.config/opencode/opencode.json"
 
 # zoxide
+unalias cd 2>/dev/null
 command -v zoxide >/dev/null && eval "$(zoxide init zsh --cmd cd)"
