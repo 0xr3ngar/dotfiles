@@ -109,6 +109,8 @@ zle -N edit-command-line
 
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
+bindkey '^[[Z' reverse-menu-complete
+bindkey -M menuselect '^[[Z' reverse-menu-complete
 bindkey '^r' history-incremental-search-backward
 bindkey '^X^E' edit-command-line
 
