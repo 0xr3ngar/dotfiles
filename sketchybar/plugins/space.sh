@@ -1,17 +1,18 @@
-# #!/bin/bash
-# if [ "$SELECTED" = "true" ]; then
-#   sketchybar --set "$NAME" background.drawing=on \
-#                           label.color=0xff000000    # Black text on bright blue
-# else
-#   sketchybar --set "$NAME" background.drawing=off \
-#                           label.color=0xff00aeff    # Bright blue text when inactive
-# fi
 #!/bin/bash
 
+ACTIVE_COLOR=0xffe08060
+INACTIVE_COLOR=0xffb8ad9d
+CLEAR_COLOR=0x001c1b19
+ACTIVE_BACKGROUND=0x33e08060
+
 if [ "$SELECTED" = "true" ]; then
-    sketchybar --set $NAME background.drawing=on \
-                          icon.color=0xff1c1b19
+    sketchybar --set "$NAME" icon.color=$ACTIVE_COLOR \
+                              y_offset=4 \
+                              background.color=$ACTIVE_BACKGROUND \
+                              background.height=24
 else
-    sketchybar --set $NAME background.drawing=off \
-                          icon.color=0xff908a7e
+    sketchybar --set "$NAME" icon.color=$INACTIVE_COLOR \
+                              y_offset=4 \
+                              background.color=$CLEAR_COLOR \
+                              background.height=24
 fi
