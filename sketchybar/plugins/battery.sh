@@ -8,11 +8,23 @@ if [ "$PERCENTAGE" = "" ]; then
 fi
 
 if [ -n "$CHARGING" ]; then
-  COLOR=0xffc8b468
+  COLOR=0xffb8b0a4
+  ICON="􀢋"
 elif [ "$PERCENTAGE" -le 20 ]; then
-  COLOR=0xffe08060
+  COLOR=0xffd08770
+  ICON="􀛪"
+elif [ "$PERCENTAGE" -le 40 ]; then
+  COLOR=0xffb8b0a4
+  ICON="􀛩"
+elif [ "$PERCENTAGE" -le 65 ]; then
+  COLOR=0xffb8b0a4
+  ICON="􀺶"
+elif [ "$PERCENTAGE" -le 85 ]; then
+  COLOR=0xffb8b0a4
+  ICON="􀺸"
 else
-  COLOR=0xffd8d0c0
+  COLOR=0xffb8b0a4
+  ICON="􀛨"
 fi
 
-sketchybar --set "$NAME" label="BAT ${PERCENTAGE}%" label.color="$COLOR"
+sketchybar --set "$NAME" icon="$ICON" icon.color="$COLOR" label="${PERCENTAGE}%" label.color=0xffd8d0c0

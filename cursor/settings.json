@@ -19,7 +19,7 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "workbench.productIconTheme": "bongocat",
     "editor.formatOnPaste": true,
-    "workbench.colorTheme": "Spirited Away",
+    "workbench.colorTheme": "Ember",
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.lineNumbers": "relative",
     "editor.cursorBlinking": "expand",

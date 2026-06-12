@@ -262,3 +262,9 @@ export OPENCODE_CONFIG="$HOME/.config/opencode/opencode.json"
 # zoxide
 unalias cd 2>/dev/null
 command -v zoxide >/dev/null && eval "$(zoxide init zsh --cmd cd)"
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<
