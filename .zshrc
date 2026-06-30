@@ -151,12 +151,6 @@ function borders-restart() {
   borders --start-service
 }
 
-# Run a command and copy its stdout to the clipboard.
-function copy() {
-  "$@" | pbcopy
-}
-compdef _precommand copy
-
 # Interactively pick a recent commit and copy its SHA.
 function glc() {
   local count=${1:-10}
