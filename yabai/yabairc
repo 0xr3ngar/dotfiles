@@ -43,6 +43,7 @@ yabai -m config \
 yabai -m rule --add app="^(Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|App Store|Activity Monitor)$" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Cursor$" manage=off
 
 yabai -m rule --add app="^Arc$" manage=off
 yabai -m rule --add app="^(TextInputMenuAgent|SystemUIServer)$" manage=off
