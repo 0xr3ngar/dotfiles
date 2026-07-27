@@ -2,7 +2,7 @@
 
 export EDITOR=nvim
 export VISUAL=nvim
-export OPENCODE_CONFIG="$HOME/.config/opencode/opencode.jsonc"
+export OPENCODE_CONFIG="$HOME/.config/opencode/opencode.json"
 
 # -----------------------------------------------------------------------------
 # PATH (deduped; only real directories)

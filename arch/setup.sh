@@ -66,6 +66,7 @@ PACKAGES=(
   unzip
   wget
   wl-clipboard
+  wl-clip-persist
   curl
 
   niri
@@ -208,28 +209,29 @@ link_configs() {
   log "Linking configs"
 
   # Shared home files
-  backup_then_link "$COMMON/home/.gitconfig" "$HOME/.gitconfig"
-  backup_then_link "$COMMON/home/.tmux.conf" "$HOME/.tmux.conf"
+  backup_then_link "$COMMON/.gitconfig" "$HOME/.gitconfig"
+  backup_then_link "$COMMON/.tmux.conf" "$HOME/.tmux.conf"
 
   # Arch home
-  backup_then_link "$ARCH/home/.zshrc" "$HOME/.zshrc"
+  backup_then_link "$ARCH/.zshrc" "$HOME/.zshrc"
 
-  # Shared ~/.config (editors, etc.)
+  # Shared ~/.config (editors, opencode, etc.)
   local dir
-  for dir in nvim cursor zed neofetch scripts; do
-    [[ -d "$COMMON/config/$dir" ]] || continue
-    backup_then_link "$COMMON/config/$dir" "$HOME/.config/$dir"
+  for dir in nvim cursor zed neofetch scripts opencode; do
+    [[ -d "$COMMON/.config/$dir" ]] || continue
+    backup_then_link "$COMMON/.config/$dir" "$HOME/.config/$dir"
   done
 
   # Arch desktop + God-King theme configs
-  for dir in alacritty fuzzel niri swaylock swaync theme lazygit gtk-3.0 gtk-4.0 opencode; do
-    [[ -d "$ARCH/config/$dir" ]] || continue
-    backup_then_link "$ARCH/config/$dir" "$HOME/.config/$dir"
+  for dir in alacritty fuzzel niri swaylock swaync theme lazygit gtk-3.0 gtk-4.0; do
+    [[ -d "$ARCH/.config/$dir" ]] || continue
+    backup_then_link "$ARCH/.config/$dir" "$HOME/.config/$dir"
   done
 
+  # Hide junk apps from fuzzel (mirrors ~/.local/share/applications)
   mkdir -p "$HOME/.local/share/applications"
   local f
-  for f in "$ARCH"/applications/*.desktop; do
+  for f in "$ARCH"/.local/share/applications/*.desktop; do
     [[ -f "$f" ]] || continue
     backup_then_link "$f" "$HOME/.local/share/applications/$(basename "$f")"
   done
@@ -258,7 +260,7 @@ setup_dirs_and_wallpaper() {
     warn "wallpaper missing from repo"
   fi
 
-  chmod +x "$ARCH"/config/niri/*.sh 2>/dev/null || true
+  chmod +x "$ARCH"/.config/niri/*.sh 2>/dev/null || true
 }
 
 # -----------------------------------------------------------------------------

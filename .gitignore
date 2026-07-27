@@ -1,8 +1,8 @@
 # Secrets / local-only
 arch/archinstall/user_credentials.json
 **/.DS_Store
-*.local
+.zshrc.local
 .env
 .env.*
-common/config/cursor/auth.json
+common/.config/cursor/auth.json
 **/auth.json

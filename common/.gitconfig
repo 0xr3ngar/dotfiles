@@ -58,3 +58,9 @@
 	line-numbers-zero-style = "#585550"
 	commit-style = "#988090 bold"
 	commit-decoration-style = "#3e3c38 box"
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

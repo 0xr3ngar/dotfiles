@@ -38,7 +38,7 @@ else
 fi
 
 chown -R "$USERNAME:$USERNAME" "$DEST"
-chmod +x "$DEST/arch/setup.sh" "$DEST"/arch/config/niri/*.sh 2>/dev/null || true
+chmod +x "$DEST/arch/setup.sh" "$DEST"/arch/.config/niri/*.sh 2>/dev/null || true
 
 log "Running arch/setup.sh for $USERNAME"
 export HOME="$HOME_DIR"

@@ -14,6 +14,19 @@ vim.opt.listchars = { tab = "..", trail = ".", nbsp = "_", space = "." }
 vim.opt.fillchars = { eob = " " }
 vim.opt.scrolloff = 20
 vim.opt.clipboard = "unnamedplus"
+-- Force Wayland system clipboard (same buffer as terminal / browser)
+vim.g.clipboard = {
+    name = "wl-clipboard",
+    copy = {
+        ["+"] = { "wl-copy", "--type", "text/plain" },
+        ["*"] = { "wl-copy", "--primary", "--type", "text/plain" },
+    },
+    paste = {
+        ["+"] = { "wl-paste", "--no-newline" },
+        ["*"] = { "wl-paste", "--no-newline", "--primary" },
+    },
+    cache_enabled = 1,
+}
 vim.opt.signcolumn = "yes"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
