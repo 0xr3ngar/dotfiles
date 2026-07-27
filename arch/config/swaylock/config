@@ -1,0 +1,44 @@
+# swaylock — Darius palette (#121012 / #d33355)
+# Colors are RRGGBB[AA]
+
+daemonize
+ignore-empty-password
+show-failed-attempts
+indicator-caps-lock
+
+# Match Alacritty / desktop bg
+color=121012ff
+
+inside-color=121012cc
+inside-clear-color=121012cc
+inside-caps-lock-color=121012cc
+inside-ver-color=121012cc
+inside-wrong-color=121012cc
+
+ring-color=4a3c42ff
+ring-clear-color=a2a2b4ff
+ring-caps-lock-color=c9a06aff
+ring-ver-color=a2a2b4ff
+ring-wrong-color=d33355ff
+
+key-hl-color=d33355ff
+bs-hl-color=e8456aff
+caps-lock-key-hl-color=c9a06aff
+caps-lock-bs-hl-color=e8456aff
+
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+separator-color=00000000
+
+text-color=c8c8d6ff
+text-clear-color=c8c8d6ff
+text-caps-lock-color=c9a06aff
+text-ver-color=c8c8d6ff
+text-wrong-color=d33355ff
+
+font=JetBrainsMono Nerd Font
+font-size=18

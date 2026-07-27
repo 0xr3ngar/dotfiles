@@ -1,0 +1,36 @@
+# Lazygit — God-King palette
+# bg #121012 · accent #d33355 · fg steel #c8c8d6
+
+gui:
+  theme:
+    activeBorderColor:
+      - "#d33355"
+      - bold
+    inactiveBorderColor:
+      - "#4a3c42"
+    searchingActiveBorderColor:
+      - "#c9a06a"
+      - bold
+    optionsTextColor:
+      - "#a2a2b4"
+    selectedLineBgColor:
+      - "#5a2436"
+    inactiveViewSelectedLineBgColor:
+      - "#2c2024"
+    cherryPickedCommitFgColor:
+      - "#d33355"
+    cherryPickedCommitBgColor:
+      - "#3a1822"
+    markedBaseCommitFgColor:
+      - "#c9a06a"
+    markedBaseCommitBgColor:
+      - "#3a2e32"
+    unstagedChangesColor:
+      - "#d33355"
+    defaultFgColor:
+      - "#c8c8d6"
+
+  authorColors:
+    "*": "#9a9aac"
+
+  nerdFontsVersion: "3"

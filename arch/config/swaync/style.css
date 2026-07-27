@@ -1,0 +1,115 @@
+/* SwayNC — God-King palette */
+@define-color bg #24191d;
+@define-color elevated #2c2024;
+@define-color surface #3a2e32;
+@define-color hover #4a3c42;
+@define-color border #4a3c42;
+@define-color text #c8c8d6;
+@define-color muted #9a9aac;
+@define-color dim #6e6e80;
+@define-color accent #d33355;
+@define-color accent-soft #e8456a;
+@define-color blood #5a2436;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+.control-center {
+  background: alpha(@bg, 0.96);
+  border: 1px solid @border;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 12px 40px alpha(#000, 0.55);
+}
+
+.control-center-list-placeholder {
+  color: @dim;
+}
+
+.notification-row {
+  outline: none;
+  margin: 4px 0;
+}
+
+.notification {
+  background: @elevated;
+  border: 1px solid @border;
+  padding: 10px;
+}
+
+.notification:hover {
+  background: @surface;
+  border-color: @accent;
+}
+
+.summary {
+  color: @text;
+  font-weight: 700;
+}
+
+.body,
+.time {
+  color: @muted;
+}
+
+.close-button {
+  background: transparent;
+  color: @dim;
+}
+
+.close-button:hover {
+  background: alpha(@accent, 0.25);
+  color: @accent-soft;
+}
+
+.widget-title {
+  color: @accent;
+  font-weight: 700;
+  margin: 4px 8px 10px;
+}
+
+.widget-title > button {
+  background: @elevated;
+  color: @text;
+  border: 1px solid @border;
+  padding: 4px 10px;
+}
+
+.widget-title > button:hover {
+  background: @blood;
+  color: @accent-soft;
+  border-color: @accent;
+}
+
+.widget-dnd {
+  color: @text;
+  margin: 6px 8px;
+}
+
+.widget-dnd > switch {
+  background: @elevated;
+  border-radius: 10px;
+}
+
+.widget-dnd > switch:checked {
+  background: @accent;
+}
+
+.widget-mpris {
+  background: @elevated;
+  border: 1px solid @border;
+  margin: 8px;
+  padding: 10px;
+}
+
+.widget-mpris-title {
+  color: @accent;
+  font-weight: 700;
+}
+
+.widget-mpris-subtitle {
+  color: @muted;
+}

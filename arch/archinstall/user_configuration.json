@@ -1,0 +1,211 @@
+{
+  "archinstall-language": "English",
+  "script": "guided",
+  "silent": false,
+  "version": "4.4",
+  "hostname": "archlinux",
+  "timezone": "Europe/Amsterdam",
+  "ntp": true,
+  "kernels": [
+    "linux"
+  ],
+  "locale_config": {
+    "kb_layout": "us",
+    "sys_enc": "UTF-8",
+    "sys_lang": "en_US"
+  },
+  "bootloader_config": {
+    "bootloader": "Systemd-boot",
+    "uki": false,
+    "removable": false
+  },
+  "swap": {
+    "enabled": true,
+    "algorithm": "zstd"
+  },
+  "network_config": {
+    "type": "nm"
+  },
+  "app_config": {
+    "audio_config": {
+      "audio": "pipewire"
+    }
+  },
+  "profile_config": {
+    "gfx_driver": "Nvidia (open kernel module for newer GPUs, Turing+)",
+    "greeter": "lightdm-gtk-greeter",
+    "profile": {
+      "main": "Desktop",
+      "details": [
+        "niri"
+      ],
+      "custom_settings": {
+        "niri": {
+          "seat_access": "seatd"
+        }
+      }
+    }
+  },
+  "packages": [
+    "git",
+    "sudo",
+    "zsh",
+    "zoxide",
+    "neovim",
+    "firefox",
+    "swaync",
+    "grim",
+    "slurp",
+    "wl-clipboard",
+    "lazygit",
+    "github-cli",
+    "docker",
+    "docker-compose",
+    "nodejs",
+    "npm",
+    "ttf-jetbrains-mono-nerd",
+    "otf-font-awesome",
+    "papirus-icon-theme",
+    "xdg-desktop-portal-gtk",
+    "xdg-utils",
+    "noto-fonts",
+    "noto-fonts-emoji",
+    "network-manager-applet",
+    "nvtop"
+  ],
+  "services": [
+    "docker",
+    "NetworkManager",
+    "seatd",
+    "lightdm"
+  ],
+  "disk_config": {
+    "config_type": "default_layout",
+    "device_modifications": [
+      {
+        "device": "/dev/nvme0n1",
+        "wipe": true,
+        "partitions": [
+          {
+            "obj_id": "11111111-1111-1111-1111-111111111101",
+            "status": "create",
+            "type": "primary",
+            "fs_type": "fat32",
+            "mountpoint": "/boot",
+            "dev_path": null,
+            "flags": [
+              "boot",
+              "esp"
+            ],
+            "start": {
+              "unit": "MiB",
+              "value": 1,
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              }
+            },
+            "size": {
+              "unit": "GiB",
+              "value": 1,
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              }
+            },
+            "mount_options": [],
+            "btrfs": []
+          },
+          {
+            "obj_id": "11111111-1111-1111-1111-111111111102",
+            "status": "create",
+            "type": "primary",
+            "fs_type": "btrfs",
+            "mountpoint": "/",
+            "dev_path": null,
+            "flags": [],
+            "start": {
+              "unit": "MiB",
+              "value": 1025,
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              }
+            },
+            "size": {
+              "unit": "B",
+              "value": 3999710314496,
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              }
+            },
+            "mount_options": [
+              "compress=zstd"
+            ],
+            "btrfs": []
+          }
+        ]
+      }
+    ],
+    "lvm_config": {
+      "config_type": "default",
+      "vol_groups": [
+        {
+          "name": "arch",
+          "lvm_pvs": [
+            "11111111-1111-1111-1111-111111111102"
+          ],
+          "volumes": [
+            {
+              "obj_id": "11111111-1111-1111-1111-111111111103",
+              "status": "create",
+              "name": "root",
+              "fs_type": "btrfs",
+              "mountpoint": "/",
+              "mount_options": [
+                "compress=zstd"
+              ],
+              "length": {
+                "unit": "B",
+                "value": 3999709265920,
+                "sector_size": {
+                  "unit": "B",
+                  "value": 512
+                }
+              },
+              "btrfs": [
+                {
+                  "name": "@",
+                  "mountpoint": "/"
+                },
+                {
+                  "name": "@home",
+                  "mountpoint": "/home"
+                },
+                {
+                  "name": "@log",
+                  "mountpoint": "/var/log"
+                },
+                {
+                  "name": "@pkg",
+                  "mountpoint": "/var/cache/pacman/pkg"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "disk_encryption": {
+      "encryption_type": "lvm_on_luks",
+      "partitions": [
+        "11111111-1111-1111-1111-111111111102"
+      ],
+      "lvm_volumes": []
+    }
+  },
+  "custom_commands": [
+    "set -euo pipefail\nDOTFILES_REPO='https://github.com/0xr3ngar/dotfiles.git'\npacman -Sy --noconfirm git\nTMP=$(mktemp -d)\ngit clone --depth 1 \"$DOTFILES_REPO\" \"$TMP/dotfiles\"\nbash \"$TMP/dotfiles/arch/archinstall/bootstrap.sh\" \"$TMP/dotfiles\"\n"
+  ]
+}

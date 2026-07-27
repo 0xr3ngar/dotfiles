@@ -1,0 +1,13 @@
+/* GTK 3 — God-King palette */
+@define-color accent_color #d33355;
+@define-color accent_bg_color #d33355;
+@define-color accent_fg_color #c8c8d6;
+@define-color window_bg_color #24191d;
+@define-color window_fg_color #c8c8d6;
+@define-color view_bg_color #2c2024;
+@define-color view_fg_color #c8c8d6;
+@define-color headerbar_bg_color #2c2024;
+@define-color headerbar_fg_color #c8c8d6;
+@define-color card_bg_color #2c2024;
+@define-color card_fg_color #c8c8d6;
+@define-color destructive_color #e8456a;

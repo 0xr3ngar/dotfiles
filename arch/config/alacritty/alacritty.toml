@@ -1,0 +1,178 @@
+# Alacritty — God-King palette
+# Colors: bg #121012 · accent #d33355 · fg steel #c8c8d6
+
+[general]
+live_config_reload = true
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+decorations = "Full"
+opacity = 1.0
+blur = false
+dynamic_title = true
+dynamic_padding = true
+padding = { x = 16, y = 4 }
+startup_mode = "Windowed"
+option_as_alt = "Both"
+title = "Terminal"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+size = 14.0
+offset = { x = 0, y = 0 }
+glyph_offset = { x = 0, y = 0 }
+builtin_box_drawing = true
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
+[colors]
+transparent_background_colors = false
+draw_bold_text_with_bright_colors = false
+
+[colors.primary]
+background = "#121012"
+foreground = "#c8c8d6"
+dim_foreground = "#6e6e80"
+
+[colors.cursor]
+text = "#121012"
+cursor = "#d33355"
+
+[colors.vi_mode_cursor]
+text = "#121012"
+cursor = "#e8456a"
+
+[colors.search.matches]
+foreground = "#121012"
+background = "#c9a06a"
+
+[colors.search.focused_match]
+foreground = "#121012"
+background = "#d33355"
+
+[colors.hints.start]
+foreground = "#121012"
+background = "#d33355"
+
+[colors.hints.end]
+foreground = "#121012"
+background = "#5a2436"
+
+[colors.selection]
+text = "#c8c8d6"
+background = "#5a2436"
+
+[colors.normal]
+black   = "#0a0809"
+red     = "#d33355"
+green   = "#6e8a6a"
+yellow  = "#c9a06a"
+blue    = "#7e7e90"
+magenta = "#e8456a"
+cyan    = "#a2a2b4"
+white   = "#c8c8d6"
+
+[colors.bright]
+black   = "#4a3c42"
+red     = "#e8456a"
+green   = "#8aa888"
+yellow  = "#d4b07a"
+blue    = "#9a9aac"
+magenta = "#f06a88"
+cyan    = "#b4b4c6"
+white   = "#e8e8f0"
+
+[colors.dim]
+black   = "#050405"
+red     = "#8f243c"
+green   = "#4a5e48"
+yellow  = "#8a6e48"
+blue    = "#4a4a58"
+magenta = "#8f3450"
+cyan    = "#5a5a6c"
+white   = "#6e6e80"
+
+[cursor]
+blink_interval = 750
+unfocused_hollow = true
+thickness = 0.15
+
+[cursor.style]
+shape = "Block"
+blinking = "On"
+
+[mouse]
+hide_when_typing = true
+
+[[mouse.bindings]]
+mouse = "Middle"
+action = "PasteSelection"
+
+[bell]
+animation = "EaseOutExpo"
+duration = 0
+color = "#d33355"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+save_to_clipboard = true
+
+[terminal]
+osc52 = "CopyPaste"
+
+[terminal.shell]
+program = "/bin/zsh"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "Key0"
+mods = "Control"
+action = "ResetFontSize"
+
+[[keyboard.bindings]]
+key = "Equals"
+mods = "Control"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Plus"
+mods = "Control"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Minus"
+mods = "Control"
+action = "DecreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\n"
