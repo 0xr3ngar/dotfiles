@@ -86,6 +86,7 @@ PACKAGES=(
   swaync
   firefox
   neovim
+  tree-sitter-cli
   nautilus
   grim
   slurp
@@ -227,18 +228,6 @@ link_configs() {
     [[ -d "$ARCH/.config/$dir" ]] || continue
     backup_then_link "$ARCH/.config/$dir" "$HOME/.config/$dir"
   done
-
-  # Hide junk apps from fuzzel (mirrors ~/.local/share/applications)
-  mkdir -p "$HOME/.local/share/applications"
-  local f
-  for f in "$ARCH"/.local/share/applications/*.desktop; do
-    [[ -f "$f" ]] || continue
-    backup_then_link "$f" "$HOME/.local/share/applications/$(basename "$f")"
-  done
-
-  if command -v update-desktop-database >/dev/null 2>&1; then
-    update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
-  fi
 }
 
 # -----------------------------------------------------------------------------
