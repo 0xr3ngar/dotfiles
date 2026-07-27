@@ -242,8 +242,8 @@ setup_dirs_and_wallpaper() {
     "$HOME/.local/bin" \
     "$HOME/.local/share/applications"
 
-  if [[ -f "$ARCH/wallpapers/foggy-city.png" ]]; then
-    cp -f "$ARCH/wallpapers/foggy-city.png" "$HOME/Pictures/Wallpapers/foggy-city.png"
+  if [[ -f "$ARCH/wallpapers/god-king.png" ]]; then
+    cp -f "$ARCH/wallpapers/god-king.png" "$HOME/Pictures/Wallpapers/god-king.png"
     ok "wallpaper installed"
   else
     warn "wallpaper missing from repo"
@@ -356,7 +356,7 @@ verify_setup() {
   check test -L "$HOME/.config/alacritty"
   check test -L "$HOME/.config/niri"
   check test -L "$HOME/.config/fuzzel"
-  check test -f "$HOME/Pictures/Wallpapers/foggy-city.png"
+  check test -f "$HOME/Pictures/Wallpapers/god-king.png"
   check test -x "$HOME/.local/bin/opencode"
   check test -x "$HOME/.local/bin/pi"
   check command -v zsh

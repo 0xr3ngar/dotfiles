@@ -269,7 +269,7 @@ layout {
 
 // Desktop shell (no bars)
 spawn-at-startup "swaync"
-spawn-sh-at-startup "swaybg -m fill -i \"$HOME/Pictures/Wallpapers/wallpaper.jpg\""
+spawn-sh-at-startup "swaybg -m fill -i \"$HOME/Pictures/Wallpapers/god-king.png\""
 // Keep one shared clipboard across terminal / browser / nvim after apps close
 spawn-at-startup "wl-clip-persist" "--clipboard" "both"
 
