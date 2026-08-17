@@ -1,5 +1,5 @@
-# Alacritty — God-King palette
-# Colors: bg #121012 · accent #d33355 · fg steel #c8c8d6
+# Alacritty — caesar palette
+# Colors: bg #121113 · accent purple #734368 · gold #e6be6e · fg #d8d3cf
 
 [general]
 live_config_reload = true
@@ -9,7 +9,7 @@ TERM = "xterm-256color"
 
 [window]
 decorations = "Full"
-opacity = 0.90
+opacity = 0.97
 blur = false
 dynamic_title = true
 dynamic_padding = true
@@ -49,67 +49,67 @@ transparent_background_colors = false
 draw_bold_text_with_bright_colors = false
 
 [colors.primary]
-background = "#121012"
-foreground = "#c8c8d6"
-dim_foreground = "#6e6e80"
+background = "#121113"
+foreground = "#e4deda"
+dim_foreground = "#746e71"
 
 [colors.cursor]
-text = "#121012"
-cursor = "#d33355"
+text = "#121113"
+cursor = "#734368"
 
 [colors.vi_mode_cursor]
-text = "#121012"
-cursor = "#e8456a"
+text = "#121113"
+cursor = "#e6be6e"
 
 [colors.search.matches]
-foreground = "#121012"
-background = "#c9a06a"
+foreground = "#121113"
+background = "#b88c42"
 
 [colors.search.focused_match]
-foreground = "#121012"
-background = "#d33355"
+foreground = "#121113"
+background = "#734368"
 
 [colors.hints.start]
-foreground = "#121012"
-background = "#d33355"
+foreground = "#121113"
+background = "#734368"
 
 [colors.hints.end]
-foreground = "#121012"
-background = "#5a2436"
+foreground = "#121113"
+background = "#231e28"
 
 [colors.selection]
-text = "#c8c8d6"
-background = "#5a2436"
+text = "#d8d3cf"
+background = "#231e28"
 
 [colors.normal]
-black   = "#0a0809"
-red     = "#d33355"
-green   = "#6e8a6a"
-yellow  = "#c9a06a"
-blue    = "#7e7e90"
-magenta = "#e8456a"
-cyan    = "#a2a2b4"
-white   = "#c8c8d6"
+black   = "#0b0a0c"
+red     = "#734368"
+green   = "#4e6a57"
+yellow  = "#b88c42"
+blue    = "#4a535e"
+magenta = "#53344c"
+cyan    = "#3b586e"
+white   = "#e4deda"
 
 [colors.bright]
-black   = "#4a3c42"
-red     = "#e8456a"
-green   = "#8aa888"
-yellow  = "#d4b07a"
-blue    = "#9a9aac"
-magenta = "#f06a88"
-cyan    = "#b4b4c6"
-white   = "#e8e8f0"
+black   = "#746e71"
+red     = "#e6be6e"
+green   = "#749c81"
+yellow  = "#e6be6e"
+blue    = "#7d8898"
+magenta = "#734368"
+cyan    = "#648aa9"
+white   = "#f7f4f1"
 
 [colors.dim]
-black   = "#050405"
-red     = "#8f243c"
-green   = "#4a5e48"
-yellow  = "#8a6e48"
-blue    = "#4a4a58"
-magenta = "#8f3450"
-cyan    = "#5a5a6c"
-white   = "#6e6e80"
+black   = "#060506"
+red     = "#2e1a28"
+green   = "#2e3f34"
+yellow  = "#6e5730"
+blue    = "#2e3338"
+magenta = "#3a2136"
+cyan    = "#233548"
+white   = "#5c5659"
 
 [cursor]
 blink_interval = 750
@@ -130,7 +130,7 @@ action = "Paste"
 [bell]
 animation = "EaseOutExpo"
 duration = 0
-color = "#d33355"
+color = "#734368"
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"

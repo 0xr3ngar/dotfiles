@@ -38,7 +38,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
 # -----------------------------------------------------------------------------
-# Prompt (God-King)
+# Prompt (wall)
 # -----------------------------------------------------------------------------
 
 autoload -Uz colors && colors
@@ -47,15 +47,15 @@ _gk_git() {
   git rev-parse --is-inside-work-tree &>/dev/null || return
   local b
   b=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null) || return
-  print -r -- " %F{#9a9aac}[%F{#c9a06a}$b%F{#9a9aac}]%f"
+  print -r -- " %F{#847d81}[%F{#b88c42}$b%F{#847d81}]%f"
 }
 
 _gk_exit() {
   local e=$?
-  (( e )) && print -r -- "%F{#d33355}✗ $e%f "
+  (( e )) && print -r -- "%F{#734368}✗ $e%f "
 }
 
-PROMPT='$(_gk_exit)%F{#d33355}%2~%f$(_gk_git) %F{#d33355}»%f '
+PROMPT='$(_gk_exit)%F{#734368}%2~%f$(_gk_git) %F{#734368}»%f '
 
 # -----------------------------------------------------------------------------
 # Keybindings

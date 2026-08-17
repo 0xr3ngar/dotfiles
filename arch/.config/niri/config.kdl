@@ -13,7 +13,8 @@ input {
             // For more information, see xkeyboard-config(7).
 
             // For example:
-            // layout "us,ru"
+            layout "us,bg"
+            variant ",phonetic"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
 
             // If this section is empty, niri will fetch xkb settings
@@ -167,13 +168,13 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#d33355"
+        active-color "#734368"
 
         // Color of the ring on inactive monitors.
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#5a2436"
+        inactive-color "#231e28"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -198,11 +199,11 @@ layout {
         off
 
         width 4
-        active-color "#d33355"
-        inactive-color "#5a2436"
+        active-color "#734368"
+        inactive-color "#231e28"
 
         // Color of the border around windows that request your attention.
-        urgent-color "#9b0000"
+        urgent-color "#e6be6e"
 
         // Gradients can use a few different interpolation color spaces.
         // For example, this is a pastel rainbow gradient via in="oklch longer hue".
@@ -269,7 +270,7 @@ layout {
 
 // Desktop shell (no bars)
 spawn-at-startup "swaync"
-spawn-sh-at-startup "swaybg -m fill -i \"$HOME/Pictures/Wallpapers/god-king.png\""
+spawn-sh-at-startup "swaybg -m fill -i \"$HOME/Pictures/Wallpapers/wall.jpg\""
 // Keep one shared clipboard across terminal / browser / nvim after apps close
 spawn-at-startup "wl-clip-persist" "--clipboard" "both"
 
@@ -278,7 +279,7 @@ spawn-at-startup "wl-clip-persist" "--clipboard" "both"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Ask clients to omit client-side decorations (title bars).
@@ -609,7 +610,7 @@ binds {
     // Having both at once on the same hotkey will break the switching,
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
     // Mod+Space       { switch-layout "next"; }
-    // Mod+Shift+Space { switch-layout "prev"; }
+    Ctrl+Space      { switch-layout "next"; }
 
     // Screenshots: niri UI (save to ~/Pictures/Screenshots)
     Print { screenshot; }

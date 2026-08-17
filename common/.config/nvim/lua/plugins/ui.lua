@@ -10,9 +10,9 @@ if vim.fn.has("mac") == 1 then
         distance_stop_animating = 0.5,
     })
 else
-    require("core.godking").apply()
+    require("core.caesar").apply()
     smear.setup({
-        cursor_color = "#d33355",
+        cursor_color = "#734368",
         normal_bg = "none",
         smear_between_buffers = true,
         smear_between_neighbor_lines = true,

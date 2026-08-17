@@ -1,27 +1,28 @@
--- God-King palette (matches Arch alacritty / theme/colors.env)
+-- caesar palette (Caesar & Cleopatra, from wallpaper wall.jpg)
 -- Only applied on Linux; macOS keeps Ember.
 
 local M = {}
 
 local c = {
-    bg = "#121012",
-    bg_warm = "#24191d",
-    bg_dim = "#0a0809",
-    surface = "#2c2024",
-    surface2 = "#3a2e32",
-    surface3 = "#4a3c42",
-    fg = "#c8c8d6",
-    fg_dim = "#9a9aac",
-    fg_muted = "#6e6e80",
-    accent = "#d33355",
-    accent_soft = "#e8456a",
-    accent_dim = "#5a2436",
-    accent_subtle = "#3a1822",
-    ok = "#6e8a6a",
-    warn = "#c9a06a",
-    border = "#4a3c42",
-    selection = "#5a2436",
-    steel = "#a2a2b4",
+    -- bg = "#121113",
+    bg = "none",
+    bg_warm = "#231e28",
+    bg_dim = "#0b0a0c",
+    surface = "#16171a",
+    surface2 = "#18141d",
+    surface3 = "#14171d",
+    fg = "#e4deda",
+    fg_dim = "#9c9599",
+    fg_muted = "#746e71",
+    accent = "#734368",
+    accent_soft = "#e6be6e",
+    accent_dim = "#53344c",
+    accent_subtle = "#3a2136",
+    ok = "#749c81",
+    warn = "#b88c42",
+    border = "#53344c",
+    selection = "#231e28",
+    steel = "#8e99a9",
 }
 
 function M.apply()
@@ -30,7 +31,7 @@ function M.apply()
         vim.cmd("syntax reset")
     end
     vim.o.termguicolors = true
-    vim.g.colors_name = "god-king"
+    vim.g.colors_name = "caesar"
 
     local hl = function(group, opts)
         vim.api.nvim_set_hl(0, group, opts)
@@ -94,9 +95,9 @@ function M.apply()
     hl("DiagnosticUnderlineError", { undercurl = true, sp = c.accent })
     hl("DiagnosticUnderlineWarn", { undercurl = true, sp = c.warn })
 
-    hl("DiffAdd", { bg = "#1a2418" })
+    hl("DiffAdd", { bg = "#121916" })
     hl("DiffChange", { bg = c.accent_subtle })
-    hl("DiffDelete", { bg = "#2a1418", fg = c.accent })
+    hl("DiffDelete", { bg = "#1c1214", fg = c.accent })
     hl("DiffText", { bg = c.accent_dim })
 
     hl("GitSignsAdd", { fg = c.ok })

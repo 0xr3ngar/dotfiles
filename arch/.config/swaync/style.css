@@ -1,15 +1,15 @@
-/* SwayNC — God-King palette */
-@define-color bg #24191d;
-@define-color elevated #2c2024;
-@define-color surface #3a2e32;
-@define-color hover #4a3c42;
-@define-color border #4a3c42;
-@define-color text #c8c8d6;
-@define-color muted #9a9aac;
-@define-color dim #6e6e80;
-@define-color accent #d33355;
-@define-color accent-soft #e8456a;
-@define-color blood #5a2436;
+/* SwayNC — caesar palette (matches alacritty/niri/fuzzel) */
+@define-color bg #121113;
+@define-color elevated #16171a;
+@define-color surface #18141d;
+@define-color hover #14171d;
+@define-color border #53344c;
+@define-color text #e4deda;
+@define-color muted #9c9599;
+@define-color dim #746e71;
+@define-color accent #734368;
+@define-color accent-soft #e6be6e;
+@define-color blood #231e28;
 
 * {
   font-family: "JetBrainsMono Nerd Font", sans-serif;
