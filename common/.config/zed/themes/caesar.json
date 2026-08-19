@@ -100,12 +100,41 @@
         "panel.indent_guide_hover": "#53344c",
         "panel.overlay_background": "#0b0a0c80",
         "players": [
-          "#e6be6e",
-          "#749c81",
-          "#8e99a9",
-          "#b88c42",
-          "#648aa9",
-          "#734368"
+          {
+            "cursor": "#e6be6e",
+            "selection": "#e6be6e4d",
+            "background": "#e6be6e"
+          },
+          {
+            "cursor": "#749c81",
+            "selection": "#749c814d",
+            "background": "#749c81"
+          },
+          {
+            "cursor": "#8e99a9",
+            "selection": "#8e99a94d",
+            "background": "#8e99a9"
+          },
+          {
+            "cursor": "#734368",
+            "selection": "#7343684d",
+            "background": "#734368"
+          },
+          {
+            "cursor": "#b88c42",
+            "selection": "#b88c424d",
+            "background": "#b88c42"
+          },
+          {
+            "cursor": "#648aa9",
+            "selection": "#648aa94d",
+            "background": "#648aa9"
+          },
+          {
+            "cursor": "#53344c",
+            "selection": "#53344c4d",
+            "background": "#53344c"
+          }
         ],
         "predictive": "#9c9599",
         "predictive.background": "#14171d",
