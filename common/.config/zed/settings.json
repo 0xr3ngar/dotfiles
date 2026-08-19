@@ -1,4 +1,12 @@
 {
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Caesar"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
   "session": {
     "trust_all_worktrees": false,
   },
@@ -16,11 +24,11 @@
   },
   "cursor_blink": true,
   "autosave": "on_focus_change",
-  "buffer_font_family": "JetBrains Mono",
   "auto_indent_on_paste": true,
   "agent": {
+    "dock": "right",
     "default_profile": "write",
-    "play_sound_when_agent_done": true,
+    "play_sound_when_agent_done": "always",
     "model_parameters": [],
     "default_model": {
       "provider": "zed.dev",
@@ -28,19 +36,19 @@
     },
   },
   "icon_theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Zed (Default)",
     "dark": "Zed (Default)",
   },
   "outline_panel": {
-    "dock": "right",
+    "dock": "left",
   },
   "edit_predictions": {
     "provider": "zed",
     "mode": "eager",
   },
   "git_panel": {
-    "dock": "right",
+    "dock": "left",
   },
   "terminal": {
     "dock": "bottom",
@@ -53,11 +61,6 @@
   "vim_mode": true,
   "ui_font_size": 14,
   "buffer_font_size": 14,
-  "theme": {
-    "mode": "dark",
-    "light": "Ayu Light",
-    "dark": "Vesper",
-  },
   "project_panel": {
     "indent_size": 14,
     "dock": "left",
@@ -76,16 +79,6 @@
       },
     },
     "TypeScript": {
-      "formatter": { "language_server": { "name": "biome" } },
-      "code_actions_on_format": {
-        "source.fixAll.biome": true,
-        "source.organizeImports.biome": true,
-      },
-    },
-    "Python": {
-      "formatter": { "language_server": { "name": "ruff" } },
-    },
-    "JSX": {
       "formatter": { "language_server": { "name": "biome" } },
       "code_actions_on_format": {
         "source.fixAll.biome": true,
