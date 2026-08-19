@@ -270,7 +270,7 @@ layout {
 
 // Desktop shell (no bars)
 spawn-at-startup "swaync"
-spawn-sh-at-startup "swaybg -m fill -i \"$HOME/Pictures/Wallpapers/wall.jpg\""
+spawn-sh-at-startup "swaybg -m fill -i \"$HOME/pictures/Wallpapers/wall.jpg\""
 // Keep one shared clipboard across terminal / browser / nvim after apps close
 spawn-at-startup "wl-clip-persist" "--clipboard" "both"
 
@@ -289,7 +289,7 @@ prefer-no-csd
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
