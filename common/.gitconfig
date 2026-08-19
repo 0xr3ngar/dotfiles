@@ -66,3 +66,7 @@
 	helper = !/usr/bin/gh auth git-credential
 [init]
 	defaultBranch = master
+
+# Always use SSH for GitHub — never HTTPS (no token prompts on push)
+[url "git@github.com:"]
+	insteadOf = https://github.com/
