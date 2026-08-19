@@ -1,6 +1,6 @@
 # dotfiles
 
-Low-effort personal configs. macOS (yabai / Ember) and Arch (niri / God-King).
+Low-effort personal configs. macOS (yabai / Ember) and Arch (niri / Caesar).
 
 Each OS folder mirrors your home (`arch/.config/…`, `arch/.zshrc`, etc.). `common/` is shared.
 

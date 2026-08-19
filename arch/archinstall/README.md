@@ -1,4 +1,4 @@
-# Archinstall — God-King / niri
+# Archinstall — Caesar / niri
 
 Uses official [archinstall](https://github.com/archlinux/archinstall) **Desktop → niri** (LightDM + seatd), then `arch/setup.sh` via `custom_commands`.
 

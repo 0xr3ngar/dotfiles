@@ -1,13 +1,13 @@
-/* GTK 4 — God-King palette */
-@define-color accent_color #d33355;
-@define-color accent_bg_color #d33355;
-@define-color accent_fg_color #c8c8d6;
-@define-color window_bg_color #24191d;
-@define-color window_fg_color #c8c8d6;
-@define-color view_bg_color #2c2024;
-@define-color view_fg_color #c8c8d6;
-@define-color headerbar_bg_color #2c2024;
-@define-color headerbar_fg_color #c8c8d6;
-@define-color card_bg_color #2c2024;
-@define-color card_fg_color #c8c8d6;
-@define-color destructive_color #e8456a;
+/* GTK 4 — Caesar palette */
+@define-color accent_color #e6be6e;
+@define-color accent_bg_color #e6be6e;
+@define-color accent_fg_color #121113;
+@define-color window_bg_color #121113;
+@define-color window_fg_color #e4deda;
+@define-color view_bg_color #16171a;
+@define-color view_fg_color #e4deda;
+@define-color headerbar_bg_color #231e28;
+@define-color headerbar_fg_color #e4deda;
+@define-color card_bg_color #18141d;
+@define-color card_fg_color #e4deda;
+@define-color destructive_color #e08060;

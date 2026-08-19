@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bootstrap this machine to match the God-King / niri Arch setup.
+# Bootstrap this machine to match the Caesar / niri Arch setup.
 # Usage (from a fresh Arch install):
 #   git clone https://github.com/0xr3ngar/dotfiles.git ~/dotfiles
 #   bash ~/dotfiles/arch/setup.sh
@@ -223,7 +223,7 @@ link_configs() {
     backup_then_link "$COMMON/.config/$dir" "$HOME/.config/$dir"
   done
 
-  # Arch desktop + God-King theme configs
+  # Arch desktop + Caesar theme configs
   for dir in alacritty fuzzel niri swaylock swaync theme lazygit gtk-3.0 gtk-4.0; do
     [[ -d "$ARCH/.config/$dir" ]] || continue
     backup_then_link "$ARCH/.config/$dir" "$HOME/.config/$dir"
@@ -241,13 +241,6 @@ setup_dirs_and_wallpaper() {
     "$HOME/Pictures/Screenshots" \
     "$HOME/.local/bin" \
     "$HOME/.local/share/applications"
-
-  if [[ -f "$ARCH/wallpapers/god-king.png" ]]; then
-    cp -f "$ARCH/wallpapers/god-king.png" "$HOME/Pictures/Wallpapers/god-king.png"
-    ok "wallpaper installed"
-  else
-    warn "wallpaper missing from repo"
-  fi
 
   chmod +x "$ARCH"/.config/niri/*.sh 2>/dev/null || true
 }
@@ -356,7 +349,6 @@ verify_setup() {
   check test -L "$HOME/.config/alacritty"
   check test -L "$HOME/.config/niri"
   check test -L "$HOME/.config/fuzzel"
-  check test -f "$HOME/Pictures/Wallpapers/god-king.png"
   check test -x "$HOME/.local/bin/opencode"
   check test -x "$HOME/.local/bin/pi"
   check command -v zsh
@@ -396,7 +388,7 @@ main() {
   Setup complete. Next:
     1. Log out / reboot (shell + docker group)
     2. Start a niri session
-    3. Open Alacritty — zsh + God-King theme
+    3. Open Alacritty — zsh + Caesar theme
 
   Optional:
     WITH_NVIDIA=1 bash arch/setup.sh
