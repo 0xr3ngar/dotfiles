@@ -237,10 +237,17 @@ link_configs() {
 setup_dirs_and_wallpaper() {
   log "User dirs + wallpaper"
   mkdir -p \
-    "$HOME/Pictures/Wallpapers" \
-    "$HOME/Pictures/Screenshots" \
+    "$HOME/pictures/Wallpapers" \
+    "$HOME/pictures/Screenshots" \
     "$HOME/.local/bin" \
     "$HOME/.local/share/applications"
+
+  if [[ -f "$ARCH/wallpapers/wall.jpg" ]]; then
+    cp -f "$ARCH/wallpapers/wall.jpg" "$HOME/pictures/Wallpapers/wall.jpg"
+    ok "wallpaper installed"
+  else
+    warn "wallpaper missing from repo"
+  fi
 
   chmod +x "$ARCH"/.config/niri/*.sh 2>/dev/null || true
 }
@@ -345,7 +352,9 @@ verify_setup() {
     fi
   }
 
+  check test -f "$HOME/pictures/Wallpapers/wall.jpg"
   check test -L "$HOME/.zshrc"
+
   check test -L "$HOME/.config/alacritty"
   check test -L "$HOME/.config/niri"
   check test -L "$HOME/.config/fuzzel"
