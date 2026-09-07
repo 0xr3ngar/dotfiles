@@ -1,9 +1,6 @@
 {
     "files.autoSave": "onFocusChange",
     "editor.formatOnSave": true,
-    "yaml.schemas": {
-        "file:///Users/bogdann/.cursor/extensions/atlassian.atlascode-3.8.15/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-    },
     "redhat.telemetry.enabled": true,
     "[typescriptreact]": {
         "editor.defaultFormatter": "biomejs.biome"
