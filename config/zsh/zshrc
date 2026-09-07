@@ -2,7 +2,6 @@
 
 export EDITOR=nvim
 export VISUAL=nvim
-export OPENCODE_CONFIG="$HOME/.config/opencode/opencode.json"
 
 # -----------------------------------------------------------------------------
 # PATH (deduped; only real directories)
@@ -38,7 +37,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
 # -----------------------------------------------------------------------------
-# Prompt (wall)
+# Prompt (caesar)
 # -----------------------------------------------------------------------------
 
 autoload -Uz colors && colors
@@ -86,7 +85,6 @@ alias md='mkdir -p'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias oc='opencode'
 alias lg='lazygit'
 alias br='git branch --show-current'
 alias reload='source ~/.zshrc'
@@ -157,3 +155,13 @@ eval "$(zoxide init zsh --cmd cd)"
 
 # Machine-local overrides last
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# Grok is installed separately.
+if [[ -d "$HOME/.grok/bin" ]]; then
+  path=("$HOME/.grok/bin" $path)
+  fpath=("$HOME/.grok/completions/zsh" $fpath)
+  autoload -Uz compinit && compinit -C
+fi
