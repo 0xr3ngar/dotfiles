@@ -1,8 +1,16 @@
-# Secrets / local-only
-arch/archinstall/user_credentials.json
-**/.DS_Store
-.zshrc.local
+.DS_Store
 .env
 .env.*
-common/.config/cursor/auth.json
 **/auth.json
+**/credentials.json
+**/node_modules/
+**/__pycache__/
+*.pyc
+*.bak
+*.before-*
+*.swp
+*.swo
+config/zsh/zshrc.local
+config/nvim/.luarc.json
+node_modules/
+config/niri/.ambxst-validate-*.kdl
