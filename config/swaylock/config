@@ -1,0 +1,35 @@
+# Caesar — the original artwork is supplied by niri/actions.ts.
+daemonize
+ignore-empty-password
+show-failed-attempts
+indicator-caps-lock
+indicator-radius=64
+indicator-thickness=3
+color=17151bff
+inside-color=17151be6
+inside-clear-color=17151be6
+inside-caps-lock-color=2b272fe6
+inside-ver-color=17151be6
+inside-wrong-color=211c24e6
+ring-color=77697dff
+ring-clear-color=9c9599ff
+ring-caps-lock-color=e6be6eff
+ring-ver-color=e6be6eff
+ring-wrong-color=e08060ff
+key-hl-color=e6be6eff
+bs-hl-color=b88c42ff
+caps-lock-key-hl-color=e6be6eff
+caps-lock-bs-hl-color=b88c42ff
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+separator-color=00000000
+text-color=e4dedaff
+text-clear-color=9c9599ff
+text-caps-lock-color=e6be6eff
+text-ver-color=e4dedaff
+text-wrong-color=e08060ff
+font=JetBrainsMono Nerd Font
+font-size=16
