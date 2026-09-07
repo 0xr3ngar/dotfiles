@@ -1,5 +1,5 @@
 # Alacritty — caesar palette
-# Colors: bg #121113 · accent purple #734368 · gold #e6be6e · fg #d8d3cf
+# Colors: bg #17151b · accent purple #77697d · gold #e6be6e · fg #d8d3cf
 
 [general]
 live_config_reload = true
@@ -13,7 +13,7 @@ opacity = 0.97
 blur = false
 dynamic_title = true
 dynamic_padding = true
-padding = { x = 16, y = 4 }
+padding = { x = 18, y = 14 }
 startup_mode = "Windowed"
 option_as_alt = "Both"
 title = "Terminal"
@@ -49,56 +49,56 @@ transparent_background_colors = false
 draw_bold_text_with_bright_colors = false
 
 [colors.primary]
-background = "#121113"
+background = "#17151b"
 foreground = "#e4deda"
 dim_foreground = "#746e71"
 
 [colors.cursor]
-text = "#121113"
-cursor = "#734368"
+text = "#17151b"
+cursor = "#e6be6e"
 
 [colors.vi_mode_cursor]
-text = "#121113"
+text = "#17151b"
 cursor = "#e6be6e"
 
 [colors.search.matches]
-foreground = "#121113"
+foreground = "#17151b"
 background = "#b88c42"
 
 [colors.search.focused_match]
-foreground = "#121113"
-background = "#734368"
+foreground = "#17151b"
+background = "#e6be6e"
 
 [colors.hints.start]
-foreground = "#121113"
-background = "#734368"
+foreground = "#17151b"
+background = "#e6be6e"
 
 [colors.hints.end]
-foreground = "#121113"
-background = "#231e28"
+foreground = "#e4deda"
+background = "#2b272f"
 
 [colors.selection]
 text = "#d8d3cf"
-background = "#231e28"
+background = "#2b272f"
 
 [colors.normal]
-black   = "#0b0a0c"
-red     = "#734368"
-green   = "#4e6a57"
-yellow  = "#b88c42"
-blue    = "#4a535e"
-magenta = "#53344c"
-cyan    = "#3b586e"
+black   = "#100e13"
+red     = "#e08060"
+green   = "#8aaa91"
+yellow  = "#d5ad68"
+blue    = "#8e99a9"
+magenta = "#b88bab"
+cyan    = "#86a5ad"
 white   = "#e4deda"
 
 [colors.bright]
 black   = "#746e71"
-red     = "#e6be6e"
-green   = "#749c81"
+red     = "#ed9c83"
+green   = "#a7c1a9"
 yellow  = "#e6be6e"
-blue    = "#7d8898"
-magenta = "#734368"
-cyan    = "#648aa9"
+blue    = "#b0bac8"
+magenta = "#d4afc9"
+cyan    = "#a5c4c9"
 white   = "#f7f4f1"
 
 [colors.dim]
@@ -107,7 +107,7 @@ red     = "#2e1a28"
 green   = "#2e3f34"
 yellow  = "#6e5730"
 blue    = "#2e3338"
-magenta = "#3a2136"
+magenta = "#3b3442"
 cyan    = "#233548"
 white   = "#5c5659"
 
@@ -130,7 +130,7 @@ action = "Paste"
 [bell]
 animation = "EaseOutExpo"
 duration = 0
-color = "#734368"
+color = "#77697d"
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
