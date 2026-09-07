@@ -1,0 +1,9 @@
+{
+  "theme": "default",
+  "position": "bottom",
+  "hoverRegionHeight": 16,
+  "keepHidden": false,
+  "noMediaDisplay": "userHost",
+  "customText": "Caesar",
+  "disableHoverExpansion": true
+}

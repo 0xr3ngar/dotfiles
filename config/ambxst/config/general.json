@@ -1,0 +1,5 @@
+{
+    "terminal": "alacritty",
+    "terminalAdvanced": false,
+    "terminalCommand": "$TERMINAL -e $COMMAND"
+}
