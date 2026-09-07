@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "Preserve",
+    "moduleResolution": "Bundler",
+    "types": ["bun"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": ["install.ts", "scripts/**/*.ts", "config/niri/**/*.ts", "config/theme/*.ts", "config/tmux/*.ts", "tests/*.ts"]
+}

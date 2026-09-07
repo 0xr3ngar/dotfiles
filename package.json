@@ -1,0 +1,19 @@
+{
+  "name": "dotfiles",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.0",
+  "scripts": {
+    "setup": "bun install.ts",
+    "check": "bun scripts/check.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"**/*.ts\"",
+    "format:check": "prettier --check \"**/*.ts\""
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.1",
+    "prettier": "^3.9.6",
+    "typescript": "^7.0.2"
+  }
+}
