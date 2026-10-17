@@ -35,7 +35,7 @@ function showHelp(): void {
   console.log(`Usage: bun install.ts [--full | --editors] [--dry-run]
 
 Default: link Arch/Niri configs, fonts and wallpaper.
---full: also install Arch packages and build the pinned Ambxst integration.
+--full: also install the Arch packages in scripts/packages.txt.
 --editors: link Zed, Cursor and OpenCode only (macOS or Linux).
 --dry-run: show planned links without changing files.
 
@@ -77,7 +77,17 @@ async function finishDesktopSetup(): Promise<void> {
   const home = homedir();
   const btopConfig = join(home, ".config/btop/btop.conf");
 
-  mkdirSync(join(home, "pictures/Screenshots"), { recursive: true });
+  for (const directory of [
+    "desktop",
+    "documents",
+    "downloads",
+    "music",
+    "pictures/Screenshots",
+    "videos/Recordings",
+    "projects",
+  ]) {
+    mkdirSync(join(home, directory), { recursive: true });
+  }
 
   if (!existsSync(btopConfig)) {
     writeFileSync(btopConfig, 'color_theme = "caesar"\n');
@@ -114,13 +124,6 @@ async function main(): Promise<void> {
   }
 
   await finishDesktopSetup();
-
-  if (options.full) {
-    await run([
-      process.execPath,
-      join(repository, "scripts/ambxst/install.ts"),
-    ]);
-  }
 
   console.log(`Configured. Desktop guide: ${repository}/docs/desktop.md`);
 }

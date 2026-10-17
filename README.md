@@ -1,12 +1,12 @@
 # dotfiles
 
-My Arch desktop: **Niri + Ambxst**, with the Caesar theme. Zed, Cursor and
+My Arch desktop runs **Niri**, with the Caesar theme. Zed, Cursor and
 OpenCode configs are also kept here for macOS.
 
 ```text
 config/     App configs, grouped by application
 assets/     Caesar wallpaper and Phosphor icons
-scripts/    Linking, package list, checks and Ambxst integration
+scripts/    Linking, package list and checks
 docs/       Desktop controls and recovery
 tests/      Installer and shortcut regression checks
 install.ts  Bun setup entry point
@@ -22,11 +22,9 @@ bun install.ts
 ```
 
 Existing files are backed up under `~/.local/state/dotfiles/backups/`. Re-running
-the installer leaves correct links alone. Your current desktop appearance and
-bindings are in `config/ambxst/` and `config/niri/`.
+the installer leaves correct links alone. Window bindings are in `config/niri/`.
 
-On an existing Arch installation, install the listed packages and build the
-pinned Ambxst integration as well:
+On an existing Arch installation, install the listed packages as well:
 
 ```bash
 bun install.ts --full
@@ -51,23 +49,11 @@ Editor accounts, tokens, extensions and session data remain outside the repo.
 
 ## Daily use
 
-- **Super+Space** — launcher
-- **Super+N** — dashboard and notifications
-- **Super+E** — Files
-- **Super+Shift+C** — settings
-- **Super+Tab** — overview
+Window shortcuts live in `config/niri/config.kdl`.
 
-[Desktop controls and recovery](docs/desktop.md)
+[Desktop notes](docs/desktop.md)
 
-Restore the saved Caesar layout and palette:
-
-```bash
-bun scripts/ambxst/restore-caesar.ts
-```
-
-Configs are linked, so edits here apply to the installed files. Ambxst's Settings
-also writes to `config/ambxst/config/`; `config/ambxst/presets/Caesar/` keeps the
-saved restore point. Put private shell settings in `~/.zshrc.local`.
+Configs are linked, so edits here apply to the installed files. Put private shell settings in `~/.zshrc.local`.
 
 ## Check changes
 

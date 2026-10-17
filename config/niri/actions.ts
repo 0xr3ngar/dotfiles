@@ -170,7 +170,6 @@ function screenshot(regionOnly: boolean, save: boolean): void {
 async function main(): Promise<void> {
   const [name, ...arguments_] = Bun.argv.slice(2);
   const actions: Record<string, () => void | Promise<void>> = {
-    ambxst: () => launch([join(home, ".local/bin/ambxst"), ...arguments_]),
     lock,
     maximize,
     overview: () => overviewAction(arguments_),

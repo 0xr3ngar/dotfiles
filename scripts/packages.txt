@@ -44,7 +44,6 @@ qt6-multimedia
 qt6-shadertools
 qt6-svg
 qt6-wayland
-quickshell
 ripgrep
 slurp
 sqlite

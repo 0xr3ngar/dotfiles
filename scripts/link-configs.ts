@@ -32,7 +32,7 @@ export const repository = resolve(import.meta.dir, "..");
 
 const archApps = [
   "alacritty",
-  "ambxst",
+  "fuzzel",
   "gtk-3.0",
   "gtk-4.0",
   "lazygit",
@@ -72,6 +72,12 @@ export function linksFor(
 
   return [
     ...appLinks,
+    ["config/user-dirs.dirs", ".config/user-dirs.dirs"],
+    ["config/shell/environment.sh", ".config/shell/environment.sh"],
+    [
+      "config/environment.d/10-home-folders.conf",
+      ".config/environment.d/10-home-folders.conf",
+    ],
     ["config/git/config", ".gitconfig"],
     ["config/zsh/zshrc", ".zshrc"],
     ["config/tmux/tmux.conf", ".tmux.conf"],

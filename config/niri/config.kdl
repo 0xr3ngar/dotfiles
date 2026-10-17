@@ -1,5 +1,8 @@
-// Caesar desktop: Niri handles windows; Ambxst handles the shell.
-// Core shell shortcuts are generated from Ambxst Settings.
+// Niri handles windows.
+
+output "DP-5" {
+    scale 1.25
+}
 
 input {
     keyboard {
@@ -78,10 +81,6 @@ layout {
 }
 
 spawn-sh-at-startup "exec ~/.local/bin/bun ~/.config/theme/apply.ts"
-spawn-sh-at-startup "exec ~/.local/bin/bun ~/.config/niri/actions.ts ambxst"
-spawn-sh-at-startup "exec ~/.local/bin/bun ~/.config/niri/ambxst-binds.ts --watch"
-
-include "ambxst-binds.kdl"
 spawn-at-startup "wl-clip-persist" "--clipboard" "both"
 
 hotkey-overlay {
