@@ -9,10 +9,7 @@ require("mason-lspconfig").setup({
     automatic_enable = true,
 })
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 vim.lsp.config("lua_ls", {
-    capabilities = capabilities,
     settings = {
         Lua = {
             diagnostics = { globals = { "vim" } },
@@ -21,20 +18,7 @@ vim.lsp.config("lua_ls", {
     },
 })
 
-vim.lsp.config("ts_ls", {
-    capabilities = capabilities,
-})
-
-vim.lsp.config("eslint", {
-    capabilities = capabilities,
-})
-
-vim.lsp.config("clangd", {
-    capabilities = capabilities,
-})
-
 vim.lsp.config("pylsp", {
-    capabilities = capabilities,
     cmd = { "uv", "run", "--with", "python-lsp-server", "pylsp" },
     root_dir = function(fname)
         return vim.fs.root(fname, { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt" })
@@ -43,10 +27,10 @@ vim.lsp.config("pylsp", {
 
 local servers = {
     { name = "lua_ls", executable = "lua-language-server" },
-    { name = "ts_ls", executable = "typescript-language-server" },
+    { name = "ts_ls",  executable = "typescript-language-server" },
     { name = "eslint", executable = "vscode-eslint-language-server" },
     { name = "clangd", executable = "clangd" },
-    { name = "pylsp", executable = "uv" },
+    { name = "pylsp",  executable = "uv" },
 }
 
 local enabled_servers = {}
@@ -58,5 +42,3 @@ for _, server in ipairs(servers) do
 end
 
 vim.lsp.enable(enabled_servers)
-
-vim.keymap.set("n", "pd", "<CMD>Glance implementations<CR>")

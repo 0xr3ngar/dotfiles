@@ -1,5 +1,4 @@
 -- caesar palette (Caesar & Cleopatra, from wallpaper wall.jpg)
--- Only applied on Linux; macOS keeps Ember.
 
 local M = {}
 
@@ -57,9 +56,15 @@ function M.apply()
     hl("StatusLineNC", { fg = c.fg_muted, bg = c.bg_dim })
     hl("TabLine", { fg = c.fg_muted, bg = c.bg_dim })
     hl("TabLineSel", { fg = c.fg, bg = c.surface, bold = true })
-    hl("Pmenu", { fg = c.fg, bg = c.surface })
+    hl("Pmenu", { fg = c.fg, bg = c.bg_warm })
     hl("PmenuSel", { fg = c.fg, bg = c.accent_dim })
-    hl("PmenuThumb", { bg = c.surface3 })
+    hl("PmenuBorder", { fg = c.accent, bg = c.bg_warm })
+    hl("PmenuKind", { fg = c.steel })
+    hl("PmenuExtra", { fg = c.fg_dim })
+    hl("PmenuMatch", { fg = c.accent_soft, bold = true })
+    hl("PmenuMatchSel", { fg = c.accent_soft, bold = true })
+    hl("PmenuSbar", { bg = c.bg_warm })
+    hl("PmenuThumb", { bg = c.accent })
     hl("WildMenu", { fg = c.bg, bg = c.accent })
     hl("Directory", { fg = c.accent_soft })
     hl("Title", { fg = c.accent, bold = true })
