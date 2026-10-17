@@ -13,4 +13,4 @@
 config/zsh/zshrc.local
 config/nvim/.luarc.json
 node_modules/
-config/niri/.ambxst-validate-*.kdl
+assets/fonts/**/.uuid

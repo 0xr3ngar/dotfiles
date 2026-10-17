@@ -13,6 +13,7 @@ docker
 docker-compose
 ffmpeg
 firefox
+fuzzel
 git
 git-delta
 github-cli
@@ -38,12 +39,6 @@ pipewire-jack
 pipewire-pulse
 playerctl
 python
-qt6-declarative
-qt6-imageformats
-qt6-multimedia
-qt6-shadertools
-qt6-svg
-qt6-wayland
 ripgrep
 slurp
 sqlite

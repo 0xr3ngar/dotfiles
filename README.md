@@ -7,7 +7,7 @@ OpenCode configs are also kept here for macOS.
 config/     App configs, grouped by application
 assets/     Caesar wallpaper and Phosphor icons
 scripts/    Linking, package list and checks
-docs/       Desktop controls and recovery
+docs/       Desktop notes
 tests/      Installer and shortcut regression checks
 install.ts  Bun setup entry point
 ```
